@@ -1,0 +1,12 @@
+<% @user.each do |user| %>
+  <div class="user row clearfix">
+    <h2>
+      <%= user.email %><br>
+      <small class="author">Joined <%= time_ago_in_words(user.created_at) %> by <%= user.email %></small>
+    </h2>
+
+    <div class="btn-group">
+      <a class="btn btn-default btn-sm" href="user/<%= user.id %>">Visit user profile</a>
+    </div>
+  </div>
+<% end %>
