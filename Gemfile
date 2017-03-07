@@ -20,6 +20,8 @@ gem 'devise-bootstrap-views'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
