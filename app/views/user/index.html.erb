@@ -1,5 +1,11 @@
 <% @user.each do |user| %>
   <div class="user row clearfix">
+
+      <div class="thumbnail">
+        <img src="<%=user.avatar_url%>" alt="Avatar" style="width: 100%;">
+      </div>
+
+
     <h2>
       <%= user.email %><br>
       <small class="author">Joined <%= time_ago_in_words(user.created_at) %> ago with email by <%= user.email %></small>
@@ -8,5 +14,6 @@
     <div class="btn-group">
       <a class="btn btn-default btn-sm" href="user/<%= user.id %>">Visit user profile</a>
     </div>
+
   </div>
 <% end %>
