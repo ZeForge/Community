@@ -17,7 +17,8 @@ gem 'devise'
 gem 'rails_admin', '~> 1.1.1'
 gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
