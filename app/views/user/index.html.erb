@@ -1,19 +1,20 @@
-<% @user.each do |user| %>
-  <div class="user row clearfix">
-
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <img src="<%=user.avatar_url%>" alt="Avatar" style="width: 100%;">
+        <div class="caption">
+          <h3><%=user.name%></h3>
+          <h3><%=user.email%></h3>
+          <p><a href="<%=user_path(user)%>" class="btn btn-primary" role="button">Profile</a></p>
+          <small class="author">Joined <%= time_ago_in_words(user.created_at) %> ago with email by <%= user.email %></small>
+        </div>
       </div>
-
-
-    <h2>
-      <%= user.email %><br>
-      <small class="author">Joined <%= time_ago_in_words(user.created_at) %> ago with email by <%= user.email %></small>
-    </h2>
+    </div>
 
     <div class="btn-group">
       <a class="btn btn-default btn-sm" href="user/<%= user.id %>">Visit user profile</a>
     </div>
 
-  </div>
-<% end %>
+  <% end %>
+</div>
