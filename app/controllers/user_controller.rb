@@ -5,7 +5,8 @@ class UserController < ApplicationController
   end
 
   def json
-    @users = User.all.to_json
+    data = User.all.to_json
+    send_data data, :type => 'application/json; header=present', :disposition => "attachment; filename=users.json"
   end
 
   def show
