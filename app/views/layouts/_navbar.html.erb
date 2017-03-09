@@ -1,33 +1,20 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="<%= root_url %>">Zeforge community</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li id="newsfeed-link"><a href="#">News Feed</a></li>
-          <li id="users-link"><a href="<%= users_path %>">Users</a></li>
-          <% if current_user %>
-            <li id="profile-link"><a href="<%= user_path(current_user) %>">Profile</a></li>
-            <li><a href="<%= logout_path %>">Log Out</a></li>
-          <% else %>
-            <li><a href="<%= login_path %>">Log In</a></li>
-          <% end %>
+<header class="navbar navbar-default" role="navigation">
+  <div class="navbar-inner">
+    <div class="container">
+      <div id="logo" class="navbar-brand"><%= link_to "Zeforge", root_path %></div>
+      <nav class="collapse navbar-collapse navbar-ex1-collapse">
+        <% if user_signed_in? -%>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Account', edit_user_registration_path %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
         </ul>
-      </div>
+        <% else -%>
+        <ul class="nav navbar-nav pull-right">
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        </ul>
+        <% end -%>
+      </nav>
     </div>
-</nav>
-
-<script>
- <% if request.original_url == users_url %>
-   $('#users-link').addClass('active');
- <% elsif current_user && request.original_url == user_url(current_user) %>
-   $('#profile-link').addClass('active');
- <% end %>
-</script>
+  </div>
+</header>
