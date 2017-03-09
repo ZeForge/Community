@@ -22,3 +22,6 @@
 
 # .env
 .env
+
+# database
+config/database.yml
