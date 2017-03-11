@@ -25,3 +25,7 @@
 
 # database
 config/database.yml
+
+# Mac
+.DS_Store
+!/.DS_Store
