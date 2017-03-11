@@ -5,8 +5,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to root_url
+    if @post.save
+      redirect_to root_url
+    else
+      render :new
+    end
   end
 
   private
