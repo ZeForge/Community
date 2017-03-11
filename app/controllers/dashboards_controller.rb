@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class DashboardsController < ApplicationController
   def show
     @users = User.all
     @posts = Post.all
