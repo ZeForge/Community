@@ -1,0 +1,30 @@
+<h1>Home</h1>
+<p>Welcome to our homepage.</p>
+
+<h2>Members</h2>
+<p>These are our members</p>
+
+<div class="row">
+  <% @users.each do |user| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%=user.avatar_url%>" alt="Avatar" style="width: 100%;">
+      <div class="caption">
+        <h4><%=user.name%></h4>
+        <p><a href="<%=user_path(user)%>" class="btn btn-primary" role="button">Profile</a></p>
+        <small class="author">Joined <%= time_ago_in_words(user.created_at) %> ago with email by <%= user.email %></small>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+<h3>Posts</h3>
+<p>These are our posts</p>
+<div class="row">
+
+  <% @posts.each do |post| %>
+  <%= post.title %>
+  <% end %>
+</div>
