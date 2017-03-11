@@ -1,10 +1,19 @@
 <div class="row">
-    <div class="col-md-3 col-sm-12">
-        <img src="<%=@user.avatar_url%>" alt="Avatar" style="width: 300px; max-width: 100%;">
-        <h1><%=@user.name%></h1>
-        <p>User position: <%= @user.position %> </p>
+  <span id="" class="">
+    <div class="col-lg-3 col-sm-3 team-box">
+      <div class="team-member" tabindex="0">
+        <figure class="profile-pic">
+          <img src="<%=@user.avatar_url%>" alt="Avatar" style="width: 300px; max-width: 100%;">
+        </figure>
+        <div class="member-details">
+          <h3 class="dark-text red-border-bottom"><%=@user.name%></h3>
+          <div class="position"><%= @user.position %>.</div>
+        </div>
+        <div class="social-icons">
+          <ul>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="col-md-9 col-sm-12">
-        <p></p>
-    </div>
+  </span>
 </div>
