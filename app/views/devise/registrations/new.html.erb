@@ -17,12 +17,18 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
+      <div class="form-group">
+        <%= f.label :position %>
+        <%= f.text_field :position, class: 'form-control' %>
+      </div>
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
 
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 
+<li class="omniauth-button">
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: 'button facebook' %>
+</li>
 
 <%= render 'devise/shared/links' %>
