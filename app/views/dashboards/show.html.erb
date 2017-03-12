@@ -19,12 +19,4 @@
   <% end %>
 </div>
 
-
-<h3>Posts</h3>
-<p>These are our posts</p>
-<div class="row">
-
-  <% @posts.each do |post| %>
-  <%= post.title %>
-  <% end %>
-</div>
+<%= render 'posts' %>
