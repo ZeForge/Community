@@ -9,6 +9,10 @@ class Post < ApplicationRecord
 
   scope :most_recent, -> { order(id: :desc)}
 
+  def display_day_published
+    "Objavljeno dana #{created_at.strftime('%-d %-b, %Y')}"
+  end
+
   def should_generate_new_friendly_id?
     title_changed?
   end
