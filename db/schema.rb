@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 20170313183952) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "fb_users", force: :cascade do |t|
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false

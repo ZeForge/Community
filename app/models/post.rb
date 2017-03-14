@@ -7,6 +7,8 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   belongs_to :user
 
+  scope :most_recent, -> { order(id: :desc)}
+
   def should_generate_new_friendly_id?
     title_changed?
   end

@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<nav class="navbar navbar-light bg-faded">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-light" style="background-color: #e3f2fd;">
   <div class='container'>
     <a class='navbar-brand' href='/'>
       Ze<span class='light'>forge</span>
@@ -32,8 +32,8 @@
     <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
       &#9776;
     </button>
-    <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
-      <li class="nav-item">
+    <ul class="nav navbar-nav hidden-xs-down navbar-toggler-right">
+      <li class="nav-item ">
         <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)}" %>
       </li>
       <li class="nav-item">
