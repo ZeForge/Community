@@ -15,7 +15,14 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
-gem 'bootstrap-sass'
+# Bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
+#
+gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
 gem 'devise-bootstrap-views'
 gem 'omniauth'

@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Zeforge</title>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title><%= yield(:page_title) %> | Zeforge</title>
+    <%= csrf_meta_tags %>
 
-<body class="<%= controller.controller_name %> <%= controller.action_name %>">
-  <%= render 'layouts/overlay' unless user_signed_in? %>
-  <%= react_component('UserOverlay', {}) %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-  <%= render "layouts/navbar" %>
-
-  <div id="main_content" class="container">
-    <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-info") %>
-    <% end %>
-
-    <div id="content" class="col-md-9 center-block">
-
+  <body>
+    <%= render 'layouts/navbar' %>
+    <div class="container <%= controller_name %> <%= action_name %>">
       <%= yield %>
     </div>
-  </div>
-</body>
+  </body>
 </html>

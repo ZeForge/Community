@@ -1,24 +1,55 @@
-<header class="navbar navbar-default" role="navigation">
-  <div class="navbar-inner">
-    <div class="container">
-      <div id="logo" class="navbar-brand"><%= link_to "Zeforge", root_path %></div>
-      <nav class="collapse navbar-collapse navbar-ex1-collapse">
-        <% if user_signed_in? -%>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Post', new_post_path %></li>
-          <li><%= link_to 'Account', edit_user_registration_path %></li>
-          <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-        </ul>
-        <% else -%>
-        <ul class="nav navbar-nav pull-right">
-          <li><%= link_to 'Sign up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign in', new_user_session_path %></li>
-          <li class="new-post-button"><%= link_to "Write a story", new_post_path, class: "button", data: { behavior: 'trigger-overlay' } %></li>
-          <li class="sign-in-button"><%= link_to "Sign in / Sign up", new_user_session_path, class: 'button green-border-button', data: { behavior: 'trigger-overlay' } %></li>
-
-        </ul>
-        <% end -%>
-      </nav>
+<div class="collapse" id="exCollapsingNavbar">
+  <div class="collapse-bg p-a-1">
+    <div class='card'>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= link_to 'Zeforge', root_path, class: "nav-link #{yield(:blog_active)}" %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to 'About', root_path, class: "nav-link #{yield(:about_active)}" %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to 'Contact', root_path, class: "nav-link #{yield(:contact_active)}" %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="list-group-item">
+            <%= link_to 'My posts', root_path, class: "nav-link #{yield(:user)}" %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
-</header>
+</div>
+
+<nav class="navbar navbar-light bg-faded">
+  <div class='container'>
+    <a class='navbar-brand' href='/'>
+      Ze<span class='light'>forge</span>
+    </a>
+    <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+      &#9776;
+    </button>
+    <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
+      <li class="nav-item">
+        <%= link_to 'Blog', root_path, class: "nav-link #{yield(:blog_active)}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'About', root_path, class: "nav-link #{yield(:about_active)}" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Contact', root_path, class: "nav-link #{yield(:contact_active)}" %>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'My posts', root_path, class: "nav-link #{yield(:user)}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

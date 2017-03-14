@@ -1,0 +1,41 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to "Zeforge", root_path, class: "navbar-brand" %>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <% if user_signed_in? -%>
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <%= link_to 'Post', new_post_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Account', edit_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <% else -%>
+      <li class="nav-item">
+        <%= link_to 'Sign up', new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Sign in', new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item new-post-button">
+        <%= link_to "Write a story", new_post_path, class: "nav-link button", data: { behavior: 'trigger-overlay' } %>
+      </li>
+      <li class="nav-item sign-in-button">
+        <%= link_to "Sign in / Sign up", new_user_session_path, class: 'button green-border-button nav-link', data: { behavior: 'trigger-overlay' } %>
+      </li>
+      <% end -%>
+    </ul>
+
+  </div>
+</nav>
+</div>
+</div>
+</header>
