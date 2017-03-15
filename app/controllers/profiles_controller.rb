@@ -1,19 +1,17 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
-  #before_action :set_profile
+  before_action :set_profile
 
   def show
   end
 
   def edit
-    @profile = User.last.id
   end
 
-  def edit3
-    @profile = User.last.id
-    if @profile.update(profile_params)
+  def update
+    if current_user.update(params[:name])
       flash[:success] = 'Your profile has been updated.'
-      redirect_to profile_path(profile_path)
+      redirect_to profile_path, notice: 'Profile was successfully updated.'
     else
       @profile.errors.full_messages
       flash[:error] = @profile.errors.full_messages
@@ -28,6 +26,6 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile
-    @profile = current_user
+    @profile = User.last
   end
 end

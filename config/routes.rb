@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#profile', as: :profile
   get 'profile/posts', to: 'users#posts', as: :profile_posts
   get 'profile/edit', to: 'profiles#edit', as: :profile_edit
+  patch 'profile/edit', to: 'profiles#edit', as: :profile_update
 
 
   #  resources :profiles
