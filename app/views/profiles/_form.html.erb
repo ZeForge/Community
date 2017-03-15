@@ -1,33 +1,19 @@
-<%= form_for(post) do |f| %>
-<% if post.errors.any? %>
+<%= form_for(profile) do |f| %>
+<% if profile.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
   <ul>
-    <% post.errors.full_messages.each do |message| %>
+    <% profile.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
 </div>
 <% end %>
 
-<div class="field">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
-
-<div class="field">
-  <%= f.label :banner_image_url %>
-  <%= f.text_field :banner_image_url %>
-</div>
-<div class="field">
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-</div>
-
-<div class="field">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true, class: 'form-control' %>
 </div>
 
 <div class="actions">
