@@ -2,6 +2,10 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  def show
+    @profile = User.current_user
+  end
+
   def edit
   end
 

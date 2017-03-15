@@ -1,20 +1,28 @@
 Rails.application.routes.draw do
-#  root to: 'homes#show'
+  #  root to: 'homes#show'
   root to: 'posts#index'
 
   devise_for :admins, controllers: { sessions: 'admin/sessions' }
   devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:edit, :update] do
     resources :recommended_posts, only: [:index]
   end
 
-  resources :posts, except: [:index] do
-    resources :responses, only: [:create]
-  end
 
-  resources :users
+  #
+  # Profiles
+  #
+  # get 'profile/:user_id/edit', to: 'profiles#edit', as: :profile_path
+  get 'profile', to: 'users#profile', as: :profile
+  get 'profile/posts', to: 'users#posts', as: :profile_posts
+
+
+  #  resources :profiles
+
   resources :posts
-  get 'users/json' => 'users#json'
+    get 'users/json' => 'users#json'
+    put 'publish' => 'posts#publish'
+    put 'unpublish' => 'posts#unpublish'
 end
