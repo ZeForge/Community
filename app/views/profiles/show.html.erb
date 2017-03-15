@@ -1,7 +1,6 @@
 <div class="row">
   <div class="container">
     <div class="col-lg-12">
-      <%= @profile.inspect  %>
       <%= link_to 'Edit', profile_edit_path, class: 'btn btn-lg btn-warning' %>
     </div>
   </div>
@@ -11,12 +10,12 @@
     <div class="col-lg-12 col-sm-12 team-box">
       <div class="team-member" tabindex="0">
         <figure class="profile-pic">
-          <img src="<%= @user.avatar_url %>" alt="Avatar" style="width: 300px; max-width: 100%;">
+          <img src="<%= @profile.avatar_url %>" alt="Avatar" style="width: 300px; max-width: 100%;">
         </figure>
         <div class="member-details">
-          <h3 class="dark-text red-border-bottom"><%= @user.name %></h3>
-          <h2 class="dark-text red-border-bottom"><%= @user.email %></h2>
-          <div class="position"><%= @user.position %>.</div>
+          <h3 class="dark-text red-border-bottom"><%= @profile.name %></h3>
+          <h2 class="dark-text red-border-bottom"><%= @profile.email %></h2>
+          <div class="position"><%= @profile.position %>.</div>
         </div>
         <div class="social-icons">
           <ul>

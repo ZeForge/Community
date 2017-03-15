@@ -8,24 +8,29 @@ class ProfilesController < ApplicationController
   def edit
   end
 
-  def update
-    if current_user.update(params[:name])
-      flash[:success] = 'Your profile has been updated.'
-      redirect_to profile_path, notice: 'Profile was successfully updated.'
-    else
-      @profile.errors.full_messages
-      flash[:error] = @profile.errors.full_messages
-      render :edit
+  def updates
+    respond_to do |format|
+      if @profile.update_attributes(profile_params)
+        save!
+        p  current_user.errors.inspect
+        format.html { redirect_to profile_path, notice: 'Profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: @profile }
+        @profile.save
+      else
+        format.html { render :edit }
+        p  current_user.errors.inspect
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:name)
+    params(:profile).permit(:name)
   end
 
   def set_profile
-    @profile = User.last
+    @profile = current_user
   end
 end

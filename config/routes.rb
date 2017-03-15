@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   # Profiles
   #
   # get 'profile/:user_id/edit', to: 'profiles#edit', as: :profile_path
-  get 'profile', to: 'users#profile', as: :profile
   get 'profile/posts', to: 'users#posts', as: :profile_posts
+  get 'profile', to: 'profiles#show', as: :profile
   get 'profile/edit', to: 'profiles#edit', as: :profile_edit
   patch 'profile/edit', to: 'profiles#edit', as: :profile_update
 
