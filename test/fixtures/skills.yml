@@ -4,12 +4,8 @@ one:
   skillcategory: one
   user: one
   score: 1
-  default: MyString
-  0: MyString
 
 two:
   skillcategory: two
   user: two
   score: 1
-  default: MyString
-  0: MyString
