@@ -18,7 +18,6 @@ class User < ApplicationRecord
     end
   end
 
-
   def self.new_draft_for(user)
     post = self.new(user_id: user.id)
     post.save_as_draft

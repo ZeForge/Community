@@ -52,6 +52,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to 'My posts', profile_posts_path, class: "dropdown-item #{yield(:contact_active)}" %>
           <%= link_to 'My profile', profile_path, class: "dropdown-item #{yield(:contact_active)}" %>
+          <%= link_to 'My skills', profile_path, class: "dropdown-item #{yield(:contact_active)}" %>
           <%= link_to 'My account', edit_user_registration_path, class: "dropdown-item #{yield(:contact_active)}" %>
           <%= link_to 'My password', root_path, class: "dropdown-item #{yield(:contact_active)}" %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
