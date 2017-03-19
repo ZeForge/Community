@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @myskill.user %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @myskill.skill %>
+</p>
+
+<%= link_to 'Edit', edit_myskill_path(@myskill) %> |
+<%= link_to 'Back', myskills_path %>

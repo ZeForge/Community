@@ -1,0 +1,18 @@
+<div class="row">
+  <div>
+    <%= link_to 'New skill', new_myskill_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
+      <% @myskills.each do |mys| %>
+      <%= mys.skill.skillcategory.name %></br>
+      <%= mys.skill.score %>
+      <% end %>
+
+      <h1><%#@skills.collect(&:id) %></h1>
+      <p><%#@skills.collect(&:score) %></p>
+      <p><%# @skills.inspect %></p>
+
+    </div>
+  </div>

@@ -4,13 +4,14 @@ Rails.application.routes.draw do
 
   devise_for :admins, controllers: { sessions: 'admin/sessions' }
   devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
+
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users
-  
-  resources :users, only: [:edit, :update] do
-    resources :recommended_posts, only: [:index]
-  end
+
+  #resources :users, only: [:edit, :update] do
+  #  resources :recommended_posts, only: [:index]
+  #end
 
 
   #
@@ -21,6 +22,14 @@ Rails.application.routes.draw do
   get 'profile', to: 'profiles#show', as: :profile
   get 'profile/edit', to: 'profiles#edit', as: :profile_edit
   patch 'profile/edit', to: 'profiles#edit', as: :profile_update
+  #
+  # Skills
+  #
+  resources :skills
+  resources :myskills
+  #
+  get 'my_skills', to: 'myskills#current_user', as: :my_skills
+  #get 'new_skills', to: 'skills#new', as: :new_skills
 
 
   #  resources :profiles

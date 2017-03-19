@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316191411) do
+ActiveRecord::Schema.define(version: 20170319130358) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20170316191411) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "myskills", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "skill_id"
+    t.integer  "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_myskills_on_skill_id"
+    t.index ["user_id"], name: "index_myskills_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -74,7 +84,6 @@ ActiveRecord::Schema.define(version: 20170316191411) do
   create_table "skills", force: :cascade do |t|
     t.integer  "skillcategory_id"
     t.integer  "user_id"
-    t.integer  "score"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["skillcategory_id"], name: "index_skills_on_skillcategory_id"

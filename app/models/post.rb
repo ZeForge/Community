@@ -1,11 +1,14 @@
 class Post < ApplicationRecord
+  # load Preety urls
   extend FriendlyId
   friendly_id :title, use: :slugged
+  # end load preety rurls
 
+  # Validations
   validates :title, presence: true, length: {minimum: 5}
   validates :body, presence: true, length: {minimum: 5}
   validates :user_id, presence: true
-  
+
   belongs_to :user
 
   scope :most_recent, -> { order(id: :desc)}
