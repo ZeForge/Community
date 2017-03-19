@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.label :skill_id %>
+    <%= f.collection_select(:skill_id, Skill.all, :id, :name) %>
   </div>
 
   <div class="field">
-    <%= f.label :skill_id %>
-    <%= f.text_field :skill_id %>
+    <%= f.label :score %>
+    <%= f.number_field :score %>
   </div>
 
   <div class="actions">

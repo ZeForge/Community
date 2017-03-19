@@ -9,7 +9,7 @@ class MyskillsController < ApplicationController
 
   def current_user
     @myskills = Myskill.all
-    #@myskills = current_user.myskills.includes(:skillcategory)
+    #@myskills.user_id = current_user.id
   end
 
   # GET /myskills/1
@@ -20,6 +20,7 @@ class MyskillsController < ApplicationController
   # GET /myskills/new
   def new
     @myskill = Myskill.new
+    @myskill.user_id = current_user
   end
 
   # GET /myskills/1/edit
