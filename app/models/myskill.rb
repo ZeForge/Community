@@ -3,4 +3,5 @@ class Myskill < ApplicationRecord
   belongs_to :skill
 
   validates :user_id, presence: true
+  validates :skill_id, uniqueness: true
 end

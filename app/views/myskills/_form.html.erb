@@ -11,17 +11,23 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= f.label :skill_id %>
-  <%= f.collection_select(:skill_id, Skill.all, :id, :name) %>
+<div class="form-group row">
+  <%= f.label :skill_id, class: 'col-sm-2 form-control-label'%>
+  <%= f.collection_select(:skill_id, Skill.all, :id, :name, {}, {:class=>'col-sm-1'}) %>
 </div>
 
-<div class="field">
-  <%= f.label :score %>
-  <%= f.number_field :score %>
+<div class="form-group row">
+  <%= f.label :score, class: 'col-sm-2 form-control-label' %>
+  <div class="col-sm-6" id='star-rating'></div>
 </div>
 
 <div class="actions">
   <%= f.submit %>
 </div>
 <% end %>
+<script>
+$('#star-rating').raty({
+  path: '/assets',
+  scoreName: 'myskill[score]'
+});
+</script>

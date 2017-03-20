@@ -34,7 +34,7 @@ class MyskillsController < ApplicationController
 
     respond_to do |format|
       if @myskill.save
-        format.html { redirect_to @myskill, notice: 'Myskill was successfully created.' }
+        format.html { redirect_to my_skills_path, notice: 'Myskill was successfully created.' }
         format.json { render :show, status: :created, location: @myskill }
       else
         format.html { render :new }
