@@ -1,27 +1,27 @@
 <%= form_for(myskill) do |f| %>
-  <% if myskill.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(myskill.errors.count, "error") %> prohibited this myskill from being saved:</h2>
+<% if myskill.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(myskill.errors.count, "error") %> prohibited this myskill from being saved:</h2>
 
-      <ul>
-      <% myskill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% myskill.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :skill_id %>
-    <%= f.collection_select(:skill_id, Skill.all, :id, :name) %>
-  </div>
+<div class="field">
+  <%= f.label :skill_id %>
+  <%= f.collection_select(:skill_id, Skill.all, :id, :name) %>
+</div>
 
-  <div class="field">
-    <%= f.label :score %>
-    <%= f.number_field :score %>
-  </div>
+<div class="field">
+  <%= f.label :score %>
+  <%= f.number_field :score %>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

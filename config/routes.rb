@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :myskills
   #
-  get 'my_skills', to: 'myskills#current_user', as: :my_skills
+  get 'my_skills', to: 'myskills#my_skills', as: :my_skills
   #get 'new_skills', to: 'skills#new', as: :new_skills
 
 

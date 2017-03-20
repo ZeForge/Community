@@ -1,4 +1,5 @@
 class MyskillsController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
   before_action :set_myskill, only: [:show, :edit, :update, :destroy]
 
   # GET /myskills
@@ -7,9 +8,13 @@ class MyskillsController < ApplicationController
     @myskills = Myskill.all
   end
 
-  def current_user
-    @myskills = Myskill.all
-    #@myskills.user_id = current_user.id
+  def my_skills
+    #@myskills = Myskill.all
+    if
+      @myskills =  Myskill.where(user_id: 'current_user.id').take
+    else
+      @myskills = Myskill.all
+    end
   end
 
   # GET /myskills/1
@@ -20,7 +25,6 @@ class MyskillsController < ApplicationController
   # GET /myskills/new
   def new
     @myskill = Myskill.new
-    @myskill.user_id = current_user
   end
 
   # GET /myskills/1/edit
@@ -31,6 +35,7 @@ class MyskillsController < ApplicationController
   # POST /myskills.json
   def create
     @myskill = Myskill.new(myskill_params)
+    @myskill.user_id = current_user.id
 
     respond_to do |format|
       if @myskill.save
@@ -75,6 +80,6 @@ class MyskillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def myskill_params
-      params.require(:myskill).permit(:user_id, :skill_id)
+      params.require(:myskill).permit(:skill_id, :score)
     end
 end

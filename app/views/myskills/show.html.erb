@@ -7,8 +7,12 @@
 
 <p>
   <strong>Skill:</strong>
-  <%= @myskill.skill %>
+  <%= @myskill.skill.name %>
 </p>
 
+<p>
+  <strong>Score:</strong>
+  <%= @myskill.score %>
+</p>
 <%= link_to 'Edit', edit_myskill_path(@myskill) %> |
 <%= link_to 'Back', myskills_path %>
