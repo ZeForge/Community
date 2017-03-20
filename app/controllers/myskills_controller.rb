@@ -9,12 +9,7 @@ class MyskillsController < ApplicationController
   end
 
   def my_skills
-    #@myskills = Myskill.all
-    if
-      @myskills =  Myskill.where(user_id: 'current_user.id').take
-    else
-      @myskills = Myskill.all
-    end
+      @myskills =  current_user.myskills.all.order(created_at: :desc).preload(:skill)
   end
 
   # GET /myskills/1

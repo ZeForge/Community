@@ -9,7 +9,7 @@
     </tr>
     <% @myskills.each do |mys| %>
     <tr>
-        <td><%= mys.score %></td>
+        <td class="star-rating" data-score="<%= mys.score %>"></td>
         <td><%= mys.skill.category.name %></td>
         <td><%= mys.skill.name %></td>
       <td></td>
@@ -19,3 +19,12 @@
     <% end %>
   </table>
 </div>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
