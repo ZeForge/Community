@@ -1,6 +1,7 @@
 class MyskillsController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
   before_action :set_myskill, only: [:show, :edit, :update, :destroy]
+  before_action :check_current_user_is_owner, only: [:edit, :update, :destroy]
 
   # GET /myskills
   # GET /myskills.json
@@ -68,6 +69,14 @@ class MyskillsController < ApplicationController
   end
 
   private
+
+  def check_current_user_is_owner
+    @myskill = Myskill.find(params[:id])
+    unless current_user.id == @myskill.user_id?
+      redirect_to myskills_url, notice: 'Please Behave'
+    end
+  end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_myskill
       @myskill = Myskill.find(params[:id])
