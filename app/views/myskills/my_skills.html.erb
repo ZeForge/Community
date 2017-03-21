@@ -10,12 +10,13 @@
       <th colspan="">Skill</th>
       <th colspan=""></th>
       <th colspan=""></th>
+      <th colspan=""></th>
     </tr>
     <% @myskills.each do |mys| %>
     <tr>
-        <td class="star-rating" data-score="<%= mys.score %>"></td>
-        <td><%= mys.skill.category.name %></td>
-        <td><%= mys.skill.name %></td>
+      <td class="star-rating" data-score="<%= mys.score %>"></td>
+      <td><%= mys.skill.category.name %></td>
+      <td><%= mys.skill.name %></td>
       <td></td>
       <td><%= link_to 'Edit', edit_myskill_path(mys), class: 'btn btn-sm btn-warning' %></td>
       <td><%= link_to 'Remove', myskill_path(mys), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
@@ -24,11 +25,11 @@
   </table>
 </div>
 <script>
-    $('.star-rating').raty({
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
+$('.star-rating').raty({
+  path: '/assets/',
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
 </script>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319130358) do
+ActiveRecord::Schema.define(version: 20170321155331) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170319130358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["skill_id"], name: "index_myskills_on_skill_id"
+    t.index ["user_id", "skill_id"], name: "index_myskills_on_user_id_and_skill_id", unique: true
     t.index ["user_id"], name: "index_myskills_on_user_id"
   end
 
