@@ -72,11 +72,11 @@ class MyskillsController < ApplicationController
 
   def check_current_user_is_owner
     @myskill = Myskill.find(params[:id])
-    unless current_user.id == @myskill.user_id?
+    unless current_user.id == @myskill.user_id
       redirect_to myskills_url, notice: 'Please Behave'
     end
   end
-  
+
     # Use callbacks to share common setup or constraints between actions.
     def set_myskill
       @myskill = Myskill.find(params[:id])
