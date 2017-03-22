@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321155331) do
+ActiveRecord::Schema.define(version: 20170321195128) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,6 +35,26 @@ ActiveRecord::Schema.define(version: 20170321155331) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "cost"
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_enrollments_on_course_id"
+    t.index ["user_id", "course_id"], name: "index_enrollments_on_user_id_and_course_id"
+  end
+
   create_table "fb_users", force: :cascade do |t|
   end
 
@@ -48,6 +68,18 @@ ActiveRecord::Schema.define(version: 20170321155331) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "video"
+    t.integer  "section_id"
+    t.integer  "sort_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_lessons_on_section_id"
+    t.index ["sort_order"], name: "index_lessons_on_sort_order"
   end
 
   create_table "myskills", force: :cascade do |t|
@@ -72,6 +104,16 @@ ActiveRecord::Schema.define(version: 20170321155331) do
     t.string   "banner_image_url"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "course_id"
+    t.integer  "sort_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_sections_on_course_id"
+    t.index ["sort_order"], name: "index_sections_on_sort_order"
   end
 
   create_table "skills", force: :cascade do |t|

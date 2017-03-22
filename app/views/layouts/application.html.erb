@@ -11,6 +11,12 @@
 <body>
   <%= render 'layouts/navbar' %>
   <div class="container <%= controller_name %> <%= action_name %>">
+    <% if flash[:alert].present? %>
+    <p class="alert alert-danger" role="alert"><%= flash[:alert] %></p>
+    <% end %>
+    <% if flash[:notice].present? %>
+    <p class="alert alert-success" role="alert"><%= flash[:notice] %></p>
+    <% end %>
     <%= yield %>
   </div>
 </body>

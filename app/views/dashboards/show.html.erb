@@ -1,22 +1,45 @@
-<h1>Home</h1>
-<p>Welcome to our homepage.</p>
-
-<h2>Members</h2>
-<p>These are our members</p>
-
-<div class="row">
-  <% @users.each do |user| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="<%=user.avatar_url%>" alt="Avatar" style="width: 100%;">
-      <div class="caption">
-        <h4><%=user.name%></h4>
-        <p><a href="<%=user_path(user)%>" class="btn btn-primary" role="button">Profile</a></p>
-        <small class="author">Joined <%= time_ago_in_words(user.created_at) %> ago with email by <%= user.email %></small>
-      </div>
-    </div>
-  </div>
-  <% end %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 box">
+			<h2 class="text-center">Currently Enrolled In</h2>
+			<br>
+			<% @myskill.each do |mysk| %>
+				<h3><%= link_to mysk.title, myskill_path(course) %></h3>
+				<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-8">
+						<% if course.image.present? %>
+							<%= image_tag course.image.thumbnail, class: "course-thumbnail" %>
+						<% end %>
+						<p><%= course.description %></p>
+					</div>
+					<div class="col-xs-12 col-sm-4 text-center">
+						<%= link_to "Detailed Info", course_path(course), class: "btn btn-success btn-lg" %>
+					</div>
+				</div>
+				<hr>
+			<% end %>
+			<%= paginate @enrolled_courses, param_name: :enrolled_page %>
+			<br>
+			<h2 class="text-center">Currently Teaching</h2>
+			<br>
+			<% @taught_courses.each do |course| %>
+				<h3><%= link_to course.title, course_path(course) %></h3>
+				<br>
+				<div class="row">
+					<div class="col-xs-12 col-sm-8">
+						<% if course.image.present? %>
+							<%= image_tag course.image.thumbnail, class: "course-thumbnail" %>
+						<% end %>
+						<p><%= course.description %></p>
+					</div>
+					<div class="col-xs-12 col-sm-4 text-center">
+						<%= link_to "Detailed Info", course_path(course), class: "btn btn-success btn-lg" %>
+					</div>
+				</div>
+				<hr>
+			<% end %>
+			<%= paginate @taught_courses, param_name: :taught_page %>
+		</div>
+	</div>
 </div>
-
-<%= render 'posts' %>

@@ -11,6 +11,7 @@ class MyskillsController < ApplicationController
 
   def my_skills
       @myskills =  current_user.myskills.all.order(created_at: :desc).includes(skill: :category)
+      check_myskills_empty
   end
 
   # GET /myskills/1
@@ -70,10 +71,17 @@ class MyskillsController < ApplicationController
 
   private
 
+  def check_myskills_empty
+    @myskillscheck = current_user.skills
+    if @myskillscheck.blank?
+      redirect_to root_path, notice: 'You have blank skills.'
+    end
+  end
+
   def check_current_user_is_owner
     @myskill = Myskill.find(params[:id])
     unless current_user.id == @myskill.user_id
-      redirect_to myskills_url, notice: 'Please Behave'
+      redirect_to myskills_url, notice: 'You do not own this skill, please behave.'
     end
   end
 

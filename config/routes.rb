@@ -8,12 +8,17 @@ Rails.application.routes.draw do
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users
+  resources :courses
 
   #resources :users, only: [:edit, :update] do
   #  resources :recommended_posts, only: [:index]
   #end
 
 
+  #
+  # Dashboards
+  #
+  get 'my_dashboard', to: 'dashboards#show', as: :my_dashboard
   #
   # Profiles
   #
