@@ -28,14 +28,16 @@ rails server
 
 # RAILS CONSOLE HOWTO
 
-## category
-* Add category named programming
+## Categories
+
+Add category named programming
+
 ```ruby
 Category.create(name: "Programming")
 ```
 
-## Skill
-* Add skill and assign it to category with id 1
+## Skills
+Add skill and assign it to category with id 1
 ```ruby
 Skill.create(name: "PHP", category_id: 1)
 ```
