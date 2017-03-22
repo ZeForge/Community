@@ -25,10 +25,40 @@ rails server
 
 ## Categories
 
+List Category attribute names
+
+```ruby
+Category.attribute_names
+```
+
 Add category named programming
 
 ```ruby
 Category.create(name: "Programming")
+```
+
+List all Categories
+
+```ruby
+Category.all
+```
+
+Find category with name 'Programming'
+
+```ruby
+Category.where(name: "Programming")
+```
+
+List last category
+
+```ruby
+Category.last
+```
+
+Lista last category's id
+
+```ruby
+Category.last.id
 ```
 
 ## Skills
