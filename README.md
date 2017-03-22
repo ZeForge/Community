@@ -22,46 +22,40 @@ rails server
 ```
 
 # RAILS CONSOLE HOWTO
-
 ## Categories
 
 List Category attribute names
-
 ```ruby
 Category.attribute_names
 ```
 
 Add category named programming
-
 ```ruby
 Category.create(name: "Programming")
 ```
 
 List all Categories
-
 ```ruby
 Category.all
 ```
 
 Find category with name 'Programming'
-
 ```ruby
 Category.where(name: "Programming")
 ```
 
 List last category
-
 ```ruby
 Category.last
 ```
 
-Lista last category's id
-
+List last category's id
 ```ruby
 Category.last.id
 ```
 
 ## Skills
+
 Add skill and assign it to category with id 1
 ```ruby
 Skill.create(name: "PHP", category_id: 1)
@@ -75,19 +69,16 @@ User.all
 ```
 
 ### List last user
-
 ```ruby
 User.last
 ```
 
 #### List last user's skills
-
 ```ruby
 User.last.skills
 ```
 
 ####  List last user's skills
-
 ```ruby
 User.last.skills.ids
 ```
