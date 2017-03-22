@@ -74,7 +74,7 @@ class MyskillsController < ApplicationController
   def check_myskills_empty
     @myskillscheck = current_user.skills
     if @myskillscheck.blank?
-      redirect_to root_path, notice: 'You have blank skills.'
+      redirect_to new_myskill_path, notice: 'Skills are missing from your profile. Please add new skill.'
     end
   end
 
