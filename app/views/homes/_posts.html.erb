@@ -9,3 +9,6 @@
   <%= link_to 'Link', post_path(post) %>
   <% end %>
 </div>
+<%= paginate @posts %>
+<br>
+<%= page_entries_info @posts %>

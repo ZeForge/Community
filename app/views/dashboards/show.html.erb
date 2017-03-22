@@ -1,45 +1,25 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-10 col-xs-offset-1 box">
-			<h2 class="text-center">Currently Enrolled In</h2>
+			<h2 class="text-center">My dashboard</h2>
 			<br>
-			<% @myskill.each do |mysk| %>
-				<h3><%= link_to mysk.title, myskill_path(course) %></h3>
+			<% @myskills.each do |mysk| %>
+				<h3><%= link_to mysk.id, myskills_path %></h3>
 				<br>
 				<div class="row">
 					<div class="col-xs-12 col-sm-8">
-						<% if course.image.present? %>
-							<%= image_tag course.image.thumbnail, class: "course-thumbnail" %>
-						<% end %>
-						<p><%= course.description %></p>
+						<p><%= mysk.skill.name %></p>
 					</div>
 					<div class="col-xs-12 col-sm-4 text-center">
-						<%= link_to "Detailed Info", course_path(course), class: "btn btn-success btn-lg" %>
+						<%= link_to "Detailed Info", myskills_path, class: "btn btn-success btn-lg" %>
 					</div>
 				</div>
 				<hr>
 			<% end %>
-			<%= paginate @enrolled_courses, param_name: :enrolled_page %>
 			<br>
-			<h2 class="text-center">Currently Teaching</h2>
+			<h2 class="text-center">Currently</h2>
 			<br>
-			<% @taught_courses.each do |course| %>
-				<h3><%= link_to course.title, course_path(course) %></h3>
-				<br>
-				<div class="row">
-					<div class="col-xs-12 col-sm-8">
-						<% if course.image.present? %>
-							<%= image_tag course.image.thumbnail, class: "course-thumbnail" %>
-						<% end %>
-						<p><%= course.description %></p>
-					</div>
-					<div class="col-xs-12 col-sm-4 text-center">
-						<%= link_to "Detailed Info", course_path(course), class: "btn btn-success btn-lg" %>
-					</div>
-				</div>
-				<hr>
-			<% end %>
-			<%= paginate @taught_courses, param_name: :taught_page %>
+
 		</div>
 	</div>
 </div>

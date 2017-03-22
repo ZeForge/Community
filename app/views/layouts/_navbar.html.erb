@@ -27,7 +27,7 @@
             <li><%= link_to 'My profile', profile_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My skills', my_skills_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My account', edit_user_registration_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
-            <li><%= link_to 'My password', root_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
+            <li><%= link_to 'My dashboard', my_dashboard_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>

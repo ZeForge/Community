@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @posts = current_user.posts.all
+    @posts = Post.page(params[:page]).per(5)
   end
 
   def update

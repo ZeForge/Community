@@ -11,4 +11,7 @@
     <%= render partial: "posts", locals: { post: post } %>
     <% end %>
   </table>
+  <%= paginate @posts %>
+  <br>
+  <%= page_entries_info @posts %>
 </div>
