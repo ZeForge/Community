@@ -4,22 +4,23 @@ How to run
 
 * install ruby version 2.4 via rvm
 * install rails with command gem install rails
-* ```console
+
+```console
 git clone git@github.com:ZeForge/Community.git
 ```
-* ```console
+```console
 cd Community/
 ```
-* ```console
+```console
 gem install bundle
 ```
-* ```console
+```console
 bundle install
 ```
-* ```console
+```console
 rake db:migrate
 ```
-* ```console
+```console
 rails server
 ```
 * Open in browser URL http://localhost:3000
@@ -41,7 +42,7 @@ Skill.create(name: "PHP", category_id: 1)
 
 ## Users
 
-### List all users
+#### List all users
 ```ruby
 User.all
 ```
@@ -52,13 +53,14 @@ User.all
 User.last
 ```
 
-* List last user's skills
+#### List last user's skills
 
 ```ruby
 User.last.skills
 ```
 
-* List last user's skills
+####  List last user's skills
+
 ```ruby
 User.last.skills.ids
 ```
