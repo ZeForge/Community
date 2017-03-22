@@ -12,6 +12,8 @@ end
 gem 'rails', '~> 5.0.2'
 
 gem 'sqlite3'
+gem 'rails_admin', '~> 1.1.1'
+gem 'cancancan'
 
 # PostgreSQL
 gem 'pg', '~> 0.18.4'

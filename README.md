@@ -11,17 +11,29 @@
 7. Open in browser URL http://localhost:3000
 
 #### Download app with git via console
-
 ```console
 git clone git@github.com:ZeForge/Community.git
 cd Community/
+```
+#### Install dependencies
+```console
 gem install bundle
+bundle update
 bundle install
+```
+#### Run database migration and run Rails web server
+```console
 rake db:migrate
 rails server
 ```
 
 # RAILS CONSOLE HOWTO
+
+Enter Rails console inside project directory
+```console
+rails console
+```
+
 ## Categories
 
 List Category attribute names
@@ -84,6 +96,12 @@ User.last.skills
 User.last.skills.ids
 ```
 
+### Update user attribute
+Add user with id 1 to superadmin_role role
+```ruby
+user = User.find(1)
+user.update_attribute :superadmin_role, true
+```
 
 
 # Importing fake data into app via Rails console
