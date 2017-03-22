@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
   before_action :set_profile
 
   def show
+    if check_myprofile_name_empty
+    else
+      check_myprofile_position_empty
+    end
   end
 
   def edit
@@ -25,6 +29,22 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def check_myprofile_name_empty
+    @my_profile_name = current_user.name
+
+    if @my_profile_name.blank?
+      redirect_to profile_edit_path, notice: 'Name is missing from your profile. Please add your name.'
+    end
+  end
+
+  def check_myprofile_position_empty
+    @my_profile_position = current_user.position
+
+    if @my_profile_position.blank?
+      redirect_to profile_edit_path, notice: 'Position is missing from your profile. Please add a new position.'
+    end
+  end
 
   def profile_params
     params(:profile).permit(:name)

@@ -58,6 +58,7 @@ Category.last.id
 
 Add skill and assign it to category with id 1
 ```ruby
+Skill.create(name: "Ruby", category_id: 1)
 Skill.create(name: "PHP", category_id: 1)
 ```
 
