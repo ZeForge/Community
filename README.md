@@ -18,20 +18,10 @@
 
 ```console
 git clone git@github.com:ZeForge/Community.git
-```
-```console
 cd Community/
-```
-```console
 gem install bundle
-```
-```console
 bundle install
-```
-```console
 rake db:migrate
-```
-```console
 rails server
 ```
 * Open in browser URL http://localhost:3000
