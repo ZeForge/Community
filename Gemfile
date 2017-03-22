@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+
+# Tells RVM to load ruby version 2.4.0
 ruby '2.4.0'
 
 git_source(:github) do |repo_name|
@@ -6,17 +8,28 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Ruby on Rails version 5.0.2
 gem 'rails', '~> 5.0.2'
+
 gem 'sqlite3'
-gem 'pg', '~> 0.18.4'
+
+# PostgreSQL
+#gem 'pg', '~> 0.18.4'
+
+# Puma web server
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
-#
+
+# Use kaminari for pagination
+gem "kaminari"
+
+# Use friendly_id for preety urls
 gem 'friendly_id', '~> 5.1.0'
 gem 'font-awesome-sass'
 gem 'devise-bootstrap-views'
@@ -24,6 +37,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'react-rails'
 
+# Rails support for loadinf variables from .env file
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'jquery-rails'

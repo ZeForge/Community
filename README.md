@@ -82,3 +82,28 @@ User.last.skills
 ```ruby
 User.last.skills.ids
 ```
+
+
+
+# Importing fake data into app
+
+Importing 100 posts
+```ruby
+(1..100).each do |i|
+  Post.create!(title: "Lipsum Post #{i}",
+    body: %{ Nullam hendrerit iaculis sodales.},
+    description: %{ Nullam hendrerit iaculis sodales.},
+    slug: ("Lipsum Post #{i}"),
+    user_id: 1
+    )
+end
+```
+Count all posts, after import we should have 100 posts
+```ruby
+Post.all.ids.count
+```
+
+List all Post id numbers
+```ruby
+Post.all.ids
+```
