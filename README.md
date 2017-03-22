@@ -1,18 +1,14 @@
 # README
 
-### How to run the application
-1. Install ruby
+# How to run the application
+1. Install ruby version 2.4 via RVM
 2. Install Ruby on Rails 5
 3. Download app with git from console
 3. Install bundle gem
 4. Install gem dependencies with bundle
 5. Run database migrations
 6. Run rails server
-
-#### How to run the application
-
-* install ruby version 2.4 via rvm
-* install rails with command gem install rails
+7. Open in browser URL http://localhost:3000
 
 #### Download app with git via console
 
@@ -24,8 +20,6 @@ bundle install
 rake db:migrate
 rails server
 ```
-* Open in browser URL http://localhost:3000
-
 
 # RAILS CONSOLE HOWTO
 
