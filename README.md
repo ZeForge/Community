@@ -4,37 +4,61 @@ How to run
 
 * install ruby version 2.4 via rvm
 * install rails with command gem install rails
-* git clone git@github.com:ZeForge/Community.git
-* cd Community/
-* gem install bundle
-* bundle install
-* rake db:migrate
-* rails server
+* ```console
+git clone git@github.com:ZeForge/Community.git
+```
+* ```console
+cd Community/
+```
+* ```console
+gem install bundle
+```
+* ```console
+bundle install
+```
+* ```console
+rake db:migrate
+```
+* ```console
+rails server
+```
 * Open in browser URL http://localhost:3000
 
 
-= RAILS CONSOLE HOWTO
+# RAILS CONSOLE HOWTO
 
-== category
+## category
 * Add category named programming
+```ruby
 Category.create(name: "Programming")
-
-== Skill
-* Add skill and assign it to category with id 1
-Skill.create(name: "PHP", category_id: 1)
-
-== Users
-
-* List all users
-User.all
-
-* List last user
 ```
+
+## Skill
+* Add skill and assign it to category with id 1
+```ruby
+Skill.create(name: "PHP", category_id: 1)
+```
+
+## Users
+
+### List all users
+```ruby
+User.all
+```
+
+### List last user
+
+```ruby
 User.last
 ```
 
 * List last user's skills
+
+```ruby
 User.last.skills
+```
 
 * List last user's skills
+```ruby
 User.last.skills.ids
+```
