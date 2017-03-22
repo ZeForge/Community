@@ -28,8 +28,10 @@ Skill.create(name: "PHP", category_id: 1)
 * List all users
 User.all
 
-* List last use
+* List last user
+```
 User.last
+```
 
 * List last user's skills
 User.last.skills
