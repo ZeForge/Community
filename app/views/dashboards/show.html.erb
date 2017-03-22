@@ -4,20 +4,23 @@
 			<h2 class="text-center">My dashboard</h2>
 			<br>
 			<% @myskills.each do |mysk| %>
-				<h3><%= link_to mysk.id, myskills_path %></h3>
-				<br>
-				<div class="row">
-					<div class="col-xs-12 col-sm-8">
-						<p><%= mysk.skill.name %></p>
-					</div>
-					<div class="col-xs-12 col-sm-4 text-center">
-						<%= link_to "Detailed Info", myskills_path, class: "btn btn-success btn-lg" %>
-					</div>
+			<h3><%= link_to mysk.id, myskills_path %></h3>
+			<br>
+			<div class="row">
+				<div class="col-xs-12 col-sm-8">
+					<p><%= mysk.skill.name %></p>
 				</div>
-				<hr>
+				<div class="col-xs-12 col-sm-4 text-center">
+					<%= link_to "Detailed Info", myskills_path, class: "btn btn-success btn-lg" %>
+				</div>
+			</div>
+			<hr>
 			<% end %>
 			<br>
-			<h2 class="text-center">Currently</h2>
+			<h2 class="text-center">My skills</h2>
+			<%= render 'myskills' %>
+			<br>
+			<h2 class="text-center">My posts</h2>
 			<br>
 
 		</div>

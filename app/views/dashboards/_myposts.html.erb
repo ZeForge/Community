@@ -1,0 +1,27 @@
+<div class="row">
+  <div>
+    <%= link_to 'New post', new_post_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+  <br>
+  <table class="table table-striped">
+    <tr>
+      <th colspan="5">Title</th>
+    </tr>
+    <% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to post.title, post_path(post) %></td>
+      <td></td>
+      <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-sm btn-warning' %></td>
+      <td><%= link_to 'Remove', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+    </tr>
+    <% end %>
+  </table>
+  <%= paginate @posts %>
+  <br>
+  <tr>
+    <td><%= link_to post.title, post_path(post) %></td>
+    <td></td>
+    <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-sm btn-warning' %></td>
+    <td><%= link_to 'Remove', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+  </tr>
+</div>

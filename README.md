@@ -85,7 +85,7 @@ User.last.skills.ids
 
 
 
-# Importing fake data into app
+# Importing fake data into app via Rails console
 
 Importing 100 posts
 ```ruby
