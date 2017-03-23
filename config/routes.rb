@@ -6,6 +6,17 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: { sessions: 'admin/sessions' }
   devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  devise_scope :user do
+    resource :registration,
+      only: [:new, :create, :edit, :update],
+      path: 'users',
+      path_names: { new: 'sign_up' },
+      controller: 'devise/registrations',
+      as: :user_registration do
+         get :cancel
+      end
+  end
+
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users
@@ -14,6 +25,17 @@ Rails.application.routes.draw do
   #resources :users, only: [:edit, :update] do
   #  resources :recommended_posts, only: [:index]
   #end
+
+  resources :lessons, only: :show
+
+  namespace :instructor do
+  resources :courses, only: [:new, :create, :show] do
+    resources :sections, only: [:create, :update]
+  end
+  resources :sections, only: [] do
+    resources :lessons, only: [:create, :update]
+  end
+end
 
 
   #
