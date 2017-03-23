@@ -15,6 +15,9 @@ gem 'sqlite3'
 gem 'rails_admin', '~> 1.1.1'
 gem 'cancancan'
 
+# font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
+gem "font-awesome-rails"
+
 # PostgreSQL
 gem 'pg', '~> 0.18.4'
 
