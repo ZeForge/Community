@@ -10,15 +10,14 @@
     <div class="row">
       <% @users.each do |user| %>
       <div class="col-sm-4 profile-item">
+        <div class="caption-content">
+          <img src="<%=user.avatar_url%>" alt="Avatar" style="width: 100%;">
+        </div>
         <a href="" class="profile-link">
           <div class="caption">
             <h4><%=user.name%></h4>
             <p><a href="<%=user_path(user)%>" class="btn btn-primary" role="button">Profile</a></p>
             <small class="author">Joined <%= time_ago_in_words(user.created_at) %> ago.</small>
-            <div class="caption-content">
-              <img src="<%=user.avatar_url%>" alt="Avatar" style="width: 100%;">
-              <i class="fa fa-search-plus fa-3x"></i>
-            </div>
           </div>
         </a>
       </div>
