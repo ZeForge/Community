@@ -1,14 +1,31 @@
-<h3>Posts</h3>
-<p>These are our posts</p>
-<div class="post_content">
-  <% @posts.each do |post| %>
-  <h1 class="title"><%= post.title %></h1>
-  <p class="date">
-    Submitted <%= time_ago_in_words(post.created_at) %> Ago
-  </p>
-  <%= link_to 'Link', post_path(post) %>
-  <% end %>
-</div>
-<%= paginate @posts %>
-<br>
-<%= page_entries_info @posts %>
+<!---->
+<section id="blog" class="section-padding wow fadeInUp delay-05s">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="service-title pad-bt15">Latest posts</h2>
+        <p class="sub-title pad-bt15">Latest posts<br>from our members.</p>
+        <hr class="bottom-line">
+      </div>
+      <% @posts.each do |post| %>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="blog-sec">
+          <div class="blog-img">
+            <a href="">
+              <img src="" class="img-responsive">
+            </a>
+          </div>
+          <div class="blog-info">
+            <h2><%= post.title %></h2>
+            <div class="date">
+              <p>Submitted <%= time_ago_in_words(post.created_at) %> Ago</p>
+            </div>
+            <p><%= post.description %></p>
+            <%= link_to 'Link', post_path(post) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
