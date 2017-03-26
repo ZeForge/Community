@@ -109,7 +109,8 @@ user.update_attribute :superadmin_role, true
 Importing 100 posts
 ```ruby
 (1..100).each do |i|
-  Post.create!(title: "Lipsum Post #{i}",
+  Post.create!(
+    title: "Lipsum Post #{i}",
     body: %{ Nullam hendrerit iaculis sodales.},
     description: %{ Nullam hendrerit iaculis sodales.},
     slug: ("Lipsum Post #{i}"),
