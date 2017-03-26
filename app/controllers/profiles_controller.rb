@@ -1,8 +1,15 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, :except => [:show, :index]
-  before_action :set_profile
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_profile_user
+  before_action :set_current_profile, only: [:my_profile]
+
+  def index
+  end
 
   def show
+  end
+
+  def my_profile
     if check_myprofile_name_empty
     else
       check_myprofile_position_empty
@@ -50,7 +57,11 @@ class ProfilesController < ApplicationController
     params(:profile).permit(:name)
   end
 
-  def set_profile
+  def set_profile_user
+    @profile = User.find_by(id: params[:id])
+  end
+
+  def set_current_profile
     @profile = current_user
   end
 end
