@@ -106,7 +106,7 @@ user.update_attribute :superadmin_role, true
 
 # Importing fake data into app via Rails console
 
-Importing 100 posts
+Importing 100 posts and assign them to user with id of 1
 ```ruby
 (1..100).each do |i|
   Post.create!(
