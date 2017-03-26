@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_profile_user
+  before_action :set_profile_user, only: [:index, :show, :edit]
+  before_action :check_profile_owner, only: [:edit, :updates]
   before_action :set_current_profile, only: [:my_profile]
 
   def index
@@ -59,6 +60,13 @@ class ProfilesController < ApplicationController
 
   def set_profile_user
     @profile = User.find_by(id: params[:id])
+  end
+
+  def check_profile_owner
+    @profile = User.find_by(id: params[:id])
+    unless @profile.id == current_user.id
+      redirect_to profile_path, notice: 'You do not own this profile, please behave.'
+    end
   end
 
   def set_current_profile

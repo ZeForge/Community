@@ -48,9 +48,9 @@ end
   # get 'profile/:user_id/edit', to: 'profiles#edit', as: :profile_path
   get 'profile/posts', to: 'users#posts', as: :profile_posts
   get 'profile/:id', to: 'profiles#show', as: :profile
-  get 'profile/edit', to: 'profiles#edit', as: :profile_edit
+  get 'profile/:id/edit', to: 'profiles#edit', as: :edit_profile
+  patch 'profile/edit', to: 'profiles#update', as: :update_profile
   get 'my_profile', to: 'profiles#my_profile', as: :my_profile
-  patch 'profile/edit', to: 'profiles#edit', as: :profile_update
   #
   # Skills
   #
