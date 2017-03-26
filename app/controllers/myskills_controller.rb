@@ -9,14 +9,12 @@ class MyskillsController < ApplicationController
     @myskills = Myskill.all
   end
 
-  def my_skills
-      @myskills =  current_user.myskills.all.order(created_at: :desc).includes(skill: :category)
-      check_myskills_empty
-  end
 
   # GET /myskills/1
   # GET /myskills/1.json
   def show
+    @myskills =  current_user.myskills.all.order(created_at: :desc).includes(skill: :category)
+    check_myskills_empty
   end
 
   # GET /myskills/new

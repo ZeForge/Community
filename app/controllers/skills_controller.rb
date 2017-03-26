@@ -2,6 +2,10 @@ class SkillsController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @skills = Skill.includes(:category, :users).all
+  end
+
   def new
     @skill = Skill.new
   end
