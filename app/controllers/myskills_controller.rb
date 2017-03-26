@@ -6,17 +6,17 @@ class MyskillsController < ApplicationController
   # GET /myskills
   # GET /myskills.json
   def index
-    @myskills = Myskill.all
-  end
-
-
-  # GET /myskills/1
-  # GET /myskills/1.json
-  def show
     @myskills =  current_user.myskills.all.order(created_at: :desc).includes(skill: :category)
     check_myskills_empty
   end
 
+  # GET /myskills/1
+  # GET /myskills/1.json
+  def show
+  end
+
+  def myskills
+  end
   # GET /myskills/new
   def new
     @myskill = Myskill.new

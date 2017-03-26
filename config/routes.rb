@@ -56,7 +56,7 @@ end
   resources :skills
   resources :myskills
   #
-  get 'my_skills', to: 'myskills#show', as: :my_skills
+  get 'my_skills', to: 'myskills#index', as: :my_skills
   #get 'new_skills', to: 'skills#new', as: :new_skills
 
 
