@@ -51,6 +51,7 @@ end
   get 'profile/:id/edit', to: 'profiles#edit', as: :edit_profile
   patch 'profile/edit', to: 'profiles#update', as: :update_profile
   get 'my_profile', to: 'profiles#my_profile', as: :my_profile
+  get 'profiles', to: 'profiles#index', as: :profiles
   #
   # Skills
   #

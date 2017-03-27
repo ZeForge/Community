@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   before_action :set_current_profile, only: [:my_profile]
 
   def index
+    @profiles = User.all.order('created_at DESC')
   end
 
   def show

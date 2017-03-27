@@ -5,7 +5,7 @@
       <div class="team-member" tabindex="0">
         <figure class="profile-pic">
           <% if @profile.avatar_url %>
-          <img src="<%# @profile.avatar_url %>" alt="Avatar" style="width: 300px; max-width: 100%;">
+          <img src="<%= @profile.avatar_url %>" alt="Avatar" style="width: 300px; max-width: 100%;">
           <% end %>
         </figure>
         <div class="member-details">
