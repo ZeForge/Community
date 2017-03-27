@@ -18,7 +18,7 @@
     <tbody>
       <% @skill.users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, profile_path(user.id) %></td>
+        <td><%= link_to user.name, profile_path(user.id), class: 'btn btn-sm btn-warning' %></td>
       </tr>
       <% end%>
     </tbody>

@@ -16,7 +16,7 @@
         <a href="" class="profile-link">
           <div class="caption">
             <h4><%=user.name%></h4>
-            <p><a href="<%=user_path(user)%>" class="btn btn-primary" role="button">Profile</a></p>
+            <%= link_to 'Profile', profile_path(user.id), class: 'btn btn-primary' %>
             <small class="author">Joined <%= time_ago_in_words(user.created_at) %> ago.</small>
           </div>
         </a>
