@@ -4,6 +4,7 @@ class Course < ApplicationRecord
   has_many :enrollments, inverse_of: :course
   has_many :enrolled_users, through: :enrollments, source: :user
 
+  mount_uploader :image, ImageUploader
 
   validates :title, presence: true
   validates :description, presence: :true
