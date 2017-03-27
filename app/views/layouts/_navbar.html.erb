@@ -29,9 +29,12 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My account <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li class="dropdown-header">Content</li>
             <li><%= link_to 'My posts', profile_posts_path, class: " #{yield(:contact_active)}" %></li>
-            <li><%= link_to 'My profile', my_profile_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My skills', my_skills_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Account</li>
+            <li><%= link_to 'My profile', my_profile_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My account', edit_user_registration_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My dashboard', my_dashboard_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <% if current_user.instructor? %>
