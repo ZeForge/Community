@@ -62,6 +62,11 @@ end
   #get 'new_skills', to: 'skills#new', as: :new_skills
 
 
+  #
+  # Categories
+  #
+  get 'category/:id', to: 'categories#show', as: :category
+
   #  resources :profiles
 
   resources :posts

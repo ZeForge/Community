@@ -8,14 +8,14 @@
       <tr>
         <th>Name</th>
         <th>Category</th>
-        <th></th>
+        <th>Users</th>
       </tr>
     </thead>
     <tbody>
       <% @skills.each do |skill| %>
       <tr>
         <td><%= link_to skill.name, skill_path(skill) %></td>
-        <td><%= skill.category.name%></td>
+        <td><%= link_to skill.category.name , category_path(skill.category.id)%></td>
         <% skill.users.each do |user| %>
         <td><%= link_to user.name, profile_path(user), method: :get %></td>
         <% end %>

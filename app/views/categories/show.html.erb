@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
+    <h1><%= @category.name %></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="container">
+    <h2>Category has these skills</h2>
+    <% @category.skills.each do |skill| %>
+      <%= link_to skill.name, skill_path(skill.id) %>
+    <% end %>
+  </div>
+</div>
