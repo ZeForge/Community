@@ -20,6 +20,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Image uploads
+uploads
+
 # .env
 .env
 

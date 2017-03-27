@@ -1,0 +1,48 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="box col-xs-10 col-xs-offset-1">
+			<h2><%= @course.title %></h2>
+			<br>
+			<div class="row">
+				<div class="col-xs-12 col-sm-8">
+					<% if @course.image.present? %>
+						<%= image_tag @course.image.thumbnail, class: "course-thumbnail" %>
+					<% end %>
+					<p><%= @course.description %></p>
+				</div>
+				<div class="col-xs-12 col-sm-4 text-center">
+					<h3><span class="label label-default"><%= @course.cost.zero? ? "Free" : number_to_currency(@course.cost) %></span></h3>
+					<br>
+					<% if current_user && current_user.enrolled_in?(@course) %>
+						<h3><span class="label label-default">You're Enrolled!</span></h3>
+					<% elsif @course.cost.zero? %>
+						<%= link_to "Enroll", course_enrollments_path(@course), method: :post, class: "btn btn-success btn-lg" %>
+						<br>
+					<% else %>
+						<%= link_to "Enroll", "#", class: "btn btn-success btn-lg", id: "stripe-enroll", data: {amount: (@course.cost * 100).to_i, key: Rails.configuration.stripe[:publishable_key], description: @course.title + " (" + number_to_currency(@course.cost) + ")"} %>
+						<%= form_tag course_enrollments_path(@course), id: "hidden-stripe-form" do %>
+							<%= hidden_field_tag "stripe_token" %>
+				      	<% end %>
+					<% end %>
+					<% if current_user == @course.user %>
+						<br>
+						<%= link_to "Administer Course", instructor_course_path(@course), class: "btn btn-success btn-lg" %>
+					<% end %>
+				</div>
+			</div>
+			<hr>
+			<% @course.sections.rank(:sort_order).each do |section| %>
+				<div class="section">
+					<h3><%= section.title %></h3>
+					<ul>
+						<% section.lessons.rank(:sort_order).each do |lesson| %>
+							<%= link_to lesson_path(lesson) do %>
+								<li><strong><%= lesson.title %></strong> - <%= lesson.subtitle %></li>
+							<% end %>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

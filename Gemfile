@@ -15,6 +15,14 @@ gem 'sqlite3'
 gem 'rails_admin', '~> 1.1.1'
 gem 'cancancan'
 
+
+# MiniMagick is used to CarrierWave image manipulation via ImageMagick
+gem "mini_magick"
+
+# Gem for image upload
+gem 'carrierwave', '~> 1.0'
+
+
 # font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "font-awesome-rails"
 
