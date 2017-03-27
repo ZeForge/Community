@@ -5,10 +5,18 @@
   </div>
 </div>
 <div class="row">
-  <div class="container">
-    <h2>Users having this skill</h2>
-    <% @skill.users.each do |user| %>
-      <%= link_to user.name, profile_path(user.id) %>
-    <% end %>
-  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Users having this skill</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @skill.users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, profile_path(user.id) %></td>
+      </tr>
+      <% end%>
+    </tbody>
+  </table>
 </div>
