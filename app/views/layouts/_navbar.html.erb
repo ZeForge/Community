@@ -34,6 +34,12 @@
             <li><%= link_to 'My skills', my_skills_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My account', edit_user_registration_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My dashboard', my_dashboard_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
+            <% if current_user.instructor? %>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">INSTRUCTOR</li>
+              <li><%= link_to 'Dashboard', instructor_dashboard_path, class: " #{yield(:contact_active)}" %></li>
+              <li><%= link_to 'New Course', new_instructor_course_path, class: " #{yield(:contact_active)}" %></li>
+            <% end %>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>

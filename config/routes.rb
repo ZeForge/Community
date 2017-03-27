@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :courses, only: [:new, :create, :show] do
     resources :sections, only: [:create, :update]
   end
+  get 'dashboard', to: 'courses#index', as: :dashboard
   resources :sections, only: [] do
     resources :lessons, only: [:create, :update]
   end
