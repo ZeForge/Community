@@ -14,7 +14,7 @@
     <tbody>
       <% @skills.each do |skill| %>
       <tr>
-        <td><%= skill.name%></td>
+        <td><%= link_to skill.name, skill_path(skill) %></td>
         <td><%= skill.category.name%></td>
         <% skill.users.each do |user| %>
         <td><%= link_to user.name, profile_path(user), method: :get %></td>
