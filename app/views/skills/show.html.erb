@@ -2,8 +2,12 @@
   <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
     <h1><%= @skill.name %></h1>
     <p>Category: <%= @skill.category.name   %></p>
+    <%= link_to 'Add as my skill', myskills_path(skill_id: @skill.id, score: 0, action: "create"), method: :post, class: 'btn btn-primary btn-sm' %>
+  </div>
+  <div class="col-lg-2">
   </div>
 </div>
+
 <div class="row">
   <table class="table table-striped">
     <thead>
@@ -20,3 +24,9 @@
     </tbody>
   </table>
 </div>
+<script>
+$('#star-rating').raty({
+  path: '/assets',
+  scoreName: 'myskill[score]'
+});
+</script>

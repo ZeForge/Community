@@ -60,7 +60,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile_user
-    @profile = User.find_by(id: params[:id])
+    @profile = User.includes(myskills: :skill).find_by(id: params[:id])
   end
 
   def check_profile_owner

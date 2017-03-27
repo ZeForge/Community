@@ -13,9 +13,12 @@
             <h4 class="dark-text red-border-bottom">E-mail: <%= @profile.email %></h2>
           <% end %>
           <div class="position">Position: <%= @profile.position %></div>
-          <h5 class="dark-text red-border-bottom">User has skills</h2>
-          <% @profile.skills.each do |skill| %>
-            <p><%= skill.name %></p>
+          <h3>User has skills</h3>
+          <% @profile.myskills.each do |myskill| %>
+          <div class="score">
+            <h5><%= myskill.skill.name %></h5>
+            <div class="star-rating" data-score="<%= myskill.score %>"></div>
+          </div>
           <% end %>
         </div>
         <div class="social-icons">
@@ -26,3 +29,12 @@
     </div>
   </span>
 </div>
+<script>
+$('.star-rating').raty({
+  path: '/assets/',
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
+</script>
