@@ -51,7 +51,7 @@ class ProfilesController < ApplicationController
     @my_profile_position = current_user.position
 
     if @my_profile_position.blank?
-      redirect_to profile_edit_path, notice: 'Position is missing from your profile. Please add a new position.'
+      redirect_to edit_profile_path, notice: 'Position is missing from your profile. Please add a new position.'
     end
   end
 
