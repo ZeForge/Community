@@ -8,11 +8,15 @@
           <% end %>
         </figure>
         <div class="member-details">
-          <h3 class="dark-text red-border-bottom">Name: <%= @profile.name %></h3>
+          <h3 class="dark-text red-border-bottom"><%= @profile.name %></h3>
           <% if user_signed_in? %>
             <h4 class="dark-text red-border-bottom">E-mail: <%= @profile.email %></h2>
           <% end %>
           <div class="position">Position: <%= @profile.position %></div>
+          <h5 class="dark-text red-border-bottom">User has skills</h2>
+          <% @profile.skills.each do |skill| %>
+            <p><%= skill.name %></p>
+          <% end %>
         </div>
         <div class="social-icons">
           <ul>
