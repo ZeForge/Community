@@ -8,7 +8,7 @@
     </tr>
     <% @profiles.each do |profile| %>
     <tr>
-      <td><%= profile.name %></td>
+      <td><%= link_to profile.name, profile_path(profile.id) %></td>
       <td></td>
     </tr>
     <% end %>
