@@ -3,11 +3,20 @@
     <h1><%= @category.name %></h1>
   </div>
 </div>
+
 <div class="row">
-  <div class="container">
-    <h2>Category has these skills</h2>
-    <% @category.skills.each do |skill| %>
-      <%= link_to skill.name, skill_path(skill.id) %>
-    <% end %>
-  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Category has these skills</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @category.skills.each do |skill| %>
+      <tr>
+        <td><%= link_to skill.name, skill_path(skill.id) %></td>
+      </tr>
+      <% end%>
+    </tbody>
+  </table>
 </div>
