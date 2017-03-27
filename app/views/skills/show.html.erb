@@ -1,6 +1,14 @@
 <div class="row">
   <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
     <h1><%= @skill.name %></h1>
-    <p><%= @skill.category.name   %></p>
+    <p>Category: <%= @skill.category.name   %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="container">
+    <h2>Users having this skill</h2>
+    <% @skill.users.each do |user| %>
+      <%= link_to user.name, profile_path(user.id) %>
+    <% end %>
   </div>
 </div>
