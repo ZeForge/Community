@@ -1,0 +1,29 @@
+<div class="row">
+  <span id="" class="">
+    <div class="col-lg-12 col-sm-12 team-box">
+      <div class="team-member" tabindex="0">
+        <figure class="profile-pic">
+          <% if @profile.avatar_url %>
+          <img src="<%= @profile.avatar_url %>" alt="Avatar" style="width: 300px; max-width: 100%;">
+          <% end %>
+        </figure>
+        <div class="member-details">
+          <h3 class="dark-text red-border-bottom">Name: <%= @profile.name %></h3>
+          <h2 class="dark-text red-border-bottom">E-mail: <%= @profile.email %></h2>
+          <div class="position">Position: <%= @profile.position %></div>
+        </div>
+        <div class="social-icons">
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= link_to 'Edit', edit_profile_path, class: 'btn btn-lg btn-warning' %>
+    </div>
+  </div>
+</div>
