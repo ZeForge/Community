@@ -43,7 +43,7 @@ class ProfilesController < ApplicationController
     @my_profile_name = current_user.name
 
     if @my_profile_name.blank?
-      redirect_to profile_edit_path, notice: 'Name is missing from your profile. Please add your name.'
+      redirect_to edit_profile_path, notice: 'Name is missing from your profile. Please add your name.'
     end
   end
 
