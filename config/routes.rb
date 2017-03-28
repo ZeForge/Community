@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :users
-  resources :courses
-
-  #resources :users, only: [:edit, :update] do
-  #  resources :recommended_posts, only: [:index]
-  #end
+  
+  resources :courses, only: [:index, :show] do
+    get "(page/:page)", action: :index, on: :collection, as: ""
+    resources :enrollments, only: [:create]
+  end
 
   resources :lessons, only: :show
 

@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :enrolled_courses, through: :enrollments, source: :course
 
 
+  def enrolled_in?(course)
+    enrolled_courses.include?(course)
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
