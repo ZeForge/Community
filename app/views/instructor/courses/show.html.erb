@@ -53,7 +53,8 @@
 			</div>
 			<%= form_for @section, url: instructor_course_sections_path(@course) do |f| %>
 				<div class="modal-body">
-					<%= f.input :title %>
+					<%= f.label :title %>
+					<%= f.text_field :title %>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -73,11 +74,14 @@
 				<h4 class="modal-title" id="newLessonModalTitle">Enter Your Lesson Details</h4>
 				<h5></h5>
 			</div>
-			<%= simple_form_for @lesson, url: "#" do |f| %>
+			<%= form_for @lesson, url: "#" do |f| %>
 				<div class="modal-body">
-					<%= f.input :title %>
-					<%= f.input :subtitle %>
-					<%= f.input :video %>
+					<%= f.label :title %>
+					<%= f.text_field :title %>
+					<%= f.label :subtitle %>
+					<%= f.text_field :subtitle %>
+					<%= f.label :video %>
+					<%= f.text_field :video %>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
