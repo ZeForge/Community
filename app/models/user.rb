@@ -3,12 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
-  
+
   enum role: [:student, :instructor, :member]
 
   has_many :myskills
   has_many :skills, through: :myskills
   has_many :posts, dependent: :destroy
+
+  has_many :courses, inverse_of: :user, dependent: :destroy
+  has_many :enrollments, inverse_of: :user
+  has_many :enrolled_courses, through: :enrollments, source: :course
 
 
   def self.from_omniauth(auth)
