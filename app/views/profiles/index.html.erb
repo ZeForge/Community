@@ -2,15 +2,19 @@
   <div>
   </div>
   <br>
-  <table class="table table-striped">
-    <tr>
-      <th colspan="">Name</th>
-    </tr>
-    <% @profiles.each do |profile| %>
-    <tr>
-      <td><%= link_to profile.name, profile_path(profile.id) %></td>
-      <td></td>
-    </tr>
-    <% end %>
-  </table>
+  <div class="col-md-6 col-md-offset-1">
+    <table class="table table-striped">
+      <tr>
+        <th colspan="">Name</th>
+      </tr>
+      <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= link_to profile.name, profile_path(profile.id) %></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-md-5">
+  </div>
 </div>
