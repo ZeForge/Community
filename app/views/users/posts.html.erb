@@ -1,17 +1,19 @@
-<div class="row">
-  <div>
-    <%= link_to 'New post', new_post_path, class: 'btn btn-primary btn-lg' %>
+<div class="container">
+  <div class="row">
+    <div>
+      <%= link_to 'New post', new_post_path, class: 'btn btn-primary btn-lg' %>
+    </div>
+    <br>
+    <table class="table table-striped">
+      <tr>
+        <th colspan="5">Title</th>
+      </tr>
+      <% @posts.each do |post| %>
+      <%= render partial: "posts", locals: { post: post } %>
+      <% end %>
+    </table>
+    <%= paginate @posts %>
+    <br>
+    <%= page_entries_info @posts %>
   </div>
-  <br>
-  <table class="table table-striped">
-    <tr>
-      <th colspan="5">Title</th>
-    </tr>
-    <% @posts.each do |post| %>
-    <%= render partial: "posts", locals: { post: post } %>
-    <% end %>
-  </table>
-  <%= paginate @posts %>
-  <br>
-  <%= page_entries_info @posts %>
 </div>
