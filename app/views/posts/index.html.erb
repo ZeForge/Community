@@ -1,9 +1,7 @@
 <% provide(:page_title, 'All posts') %>
 
-<div class="container">
-  <div class="row">
-    <% @posts.each do |post| %>
-      <%= render post %>
-    <% end %>
-  </div>
+<div class="row">
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
 </div>
