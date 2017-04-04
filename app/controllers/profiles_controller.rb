@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @posts = User.find_by(id: params[:id]).posts.page(params[:page]).per(5)
   end
 
   def my_profile
