@@ -1,37 +1,87 @@
-<div class="container">
-<div class="row">
-  <div class="col-lg-6 col-sm-6">
-    <div class="team-member" tabindex="0">
-      <figure class="profile-pic">
+<!DOCTYPE html>
+<html>
+<title>  </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <figure class="profile-pic">
         <% if @profile.avatar_url %>
-        <img src="<%= @profile.avatar_url %>" alt="Avatar" style="width: 300px; max-width: 100%;">
+        <img class="img-circle" src="<%= @profile.avatar_url %>" alt="Avatar" style="width: 300px; max-width: 100%;">
         <% end %>
       </figure>
-      <div class="member-details">
-        <h3 class="dark-text red-border-bottom"><%= @profile.name %></h3>
-        <% if user_signed_in? %>
-        <h4 class="dark-text red-border-bottom">E-mail: <%= @profile.email %></h2>
+      <br><br><br>
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2><%= @profile.name %></h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @profile.position %></p>
+          
+          <% if user_signed_in? %>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><%=  @profile.email %></p>
           <% end %>
-          <div class="position">Position: <%= @profile.position %></div>
-          <h3>User has skills</h3>
-          <% @profile.myskills.each do |myskill| %>
+         
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+
+             <% @profile.myskills.each do |myskill| %>
           <div class="score">
             <h5><%= myskill.skill.name %></h5>
             <div class="star-rating" data-score="<%= myskill.score %>"></div>
           </div>
           <% end %>
         </div>
-        <div class="social-icons">
+         
+         <div class="social-icons">
           <ul>
           </ul>
         </div>
-      </div>
+
+        <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-left w3-text-teal"></i>    Community Chat Room</b></p>
+        <div class="w3-margin-left w3-container ">
+        <button onClick = "window.open('/profiles/chat', 'newwindow', 'width=550, height=450'); return false;" class= "btn btn-basic">Click to get in!</button>
+        </div>
+
+         
+          <div class="w3-light-grey w3-round-xlarge">
+            
+          
+
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
     </div>
-    <div class="col-lg-6 col-sm-6">
-      <h3 class="text-center">Last user posts</h3>
-          <div class="row">
-            <% @posts.each do |post| %>
-            <div class="col-sm-12 col-lg-12 text-center">
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16">
+        <i class="fa fa-globe fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Blog Post</h2>
+        <div class="w3-container">
+                  <% @posts.each do |post| %>
+            <div class="col-sm-12 col-lg-12">
               <div class="card">
                 <div class="card-topper" style='background-image: url(<%= post.banner_image_url %>);'></div>
                 <div class="card-block">
@@ -42,9 +92,19 @@
             </div>
             <% end %>
             </div>
+     
+     </div>
+     
+
+    <!-- End Right Column -->
     </div>
+    
+  <!-- End Grid -->
   </div>
-  </div>
+  
+  <!-- End Page Container -->
+</div>
+
 <script>
 $('.star-rating').raty({
   path: '/assets/',
@@ -54,3 +114,7 @@ $('.star-rating').raty({
   }
 });
 </script>
+
+
+</body>
+</html>

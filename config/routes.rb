@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+  #Chat
+  get 'profiles/chat'
+   get 'profiles/profile'
+  resources :urls, :only => [:show, :new, :create]
+  
+  
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'homes#show'
   #root to: 'posts#index'
@@ -75,3 +83,8 @@ end
     put 'publish' => 'posts#publish'
     put 'unpublish' => 'posts#unpublish'
 end
+
+
+
+
+
