@@ -34,6 +34,7 @@
             <li class="dropdown-header">Content</li>
             <li><%= link_to 'My posts', profile_posts_path, class: " #{yield(:contact_active)}" %></li>
             <li><%= link_to 'My skills', my_skills_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
+            <li><%= link_to 'My enrollments', enrolled_page_path, class: "dropdown-item #{yield(:contact_active)}" %></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Account</li>
             <li><%= link_to 'My profile', my_profile_path, class: "dropdown-item #{yield(:contact_active)}" %></li>

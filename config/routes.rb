@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
-  
-  #Chat
-  get 'profiles/chat'
-   get 'profiles/profile'
-  resources :urls, :only => [:show, :new, :create]
-  
-  
 
+  #
+  # Chat
+  #
+  get 'profiles/chat'
+  get 'profiles/profile'
+  resources :urls, only: [:show, :new, :create]
+
+  #
+  # Rails Admin
+  #
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'homes#show'
-  #root to: 'posts#index'
 
+  #
+  # Devise
+  #
   devise_for :admins, controllers: { sessions: 'admin/sessions' }
   devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -27,8 +32,14 @@ Rails.application.routes.draw do
 
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  #
+  # Users
+  #
   resources :users
-  
+
+  #
+  # Courses, Lessons, Instructors
+  #
   resources :courses, only: [:index, :show] do
     get "(page/:page)", action: :index, on: :collection, as: ""
     resources :enrollments, only: [:create]
@@ -62,6 +73,11 @@ end
   get 'my_profile', to: 'profiles#my_profile', as: :my_profile
   get 'profiles', to: 'profiles#index', as: :profiles
   #
+  # Course Enrollments
+  #get "enrolled/:enrolled_page", to: 'enrollments#show', as: "enrolled_page"
+  get "my_enrollements", to: 'enrollments#show', as: "enrolled_page"
+  #
+  #
   # Skills
   #
   resources :skills
@@ -78,13 +94,11 @@ end
 
   #  resources :profiles
 
+  #
+  # Posts
+  #
   resources :posts
     get 'users/json' => 'users#json'
     put 'publish' => 'posts#publish'
     put 'unpublish' => 'posts#unpublish'
 end
-
-
-
-
-
