@@ -4,20 +4,20 @@
 			<h1 class="text-center">Ovo su kursevi koje nudimo</h1>
 			<br>
 			<% @courses.each do |course| %>
-				<h3><%= link_to course.title, course_path(course) %></h3>
-				<br>
-				<div class="row">
-					<div class="col-xs-12 col-sm-8">
-						<% if course.image.present? %>
-							<%# image_tag course.image.thumbnail, class: "course-thumbnail" %>
-						<% end %>
-						<p><%= course.description %></p>
+					<h3><%= link_to course.title, course_path(course) %></h3>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-sm-8">
+							<% if course.image.present? %>
+								<%# image_tag course.image.thumbnail, class: "course-thumbnail" %>
+							<% end %>
+							<p><%= course.description %></p>
+						</div>
+						<div class="col-xs-12 col-sm-4 text-center">
+							<%= link_to "Detailed Info", course_path(course), class: "btn btn-success btn-lg" %>
+						</div>
 					</div>
-					<div class="col-xs-12 col-sm-4 text-center">
-						<%= link_to "Detailed Info", course_path(course), class: "btn btn-success btn-lg" %>
-					</div>
-				</div>
-				<hr>
+					<hr>
 			<% end %>
 			<%= paginate @courses %>
 		</div>
