@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: lessons
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  subtitle   :string
+#  video      :string
+#  section_id :integer
+#  sort_order :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Lesson < ApplicationRecord
   belongs_to :section, inverse_of: :lessons
 

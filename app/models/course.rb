@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: courses
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  description :text
+#  cost        :decimal(, )
+#  user_id     :integer
+#  image       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Course < ApplicationRecord
   belongs_to :user, inverse_of: :courses
   has_many :sections, inverse_of: :course, dependent: :destroy

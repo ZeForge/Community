@@ -27,6 +27,9 @@ gem 'carrierwave', '~> 1.0'
 # font-awesome-rails provides the Font-Awesome web fonts and stylesheets as a Rails engine for use with the asset pipeline.
 gem "font-awesome-rails"
 
+# Annotate (aka AnnotateModels)
+gem 'annotate'
+
 # PostgreSQL
 gem 'pg', '~> 0.18.4'
 
