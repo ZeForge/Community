@@ -1,5 +1,7 @@
+<%= render 'shared/navbar' %>
 <% if ! @profile.nil? %>
   <%= render partial: 'profile' %>
 <% else %>
   <p>No such user in database</p>
 <% end %>
+<%= render 'shared/footer' %>

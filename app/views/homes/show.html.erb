@@ -1,6 +1,11 @@
 
+<%= render 'shared/navbar' %>
 <%= render 'header' %>
-<div class="section bordered">
-  <%= render 'profiles' %>
+
+<div class="content-wrapper">
+  <div class="section bordered">
+    <%= render 'profiles' %>
+  </div>
+  <%= render 'posts' %>
+  <%= render 'shared/footer' %>
 </div>
-<%= render 'posts' %>

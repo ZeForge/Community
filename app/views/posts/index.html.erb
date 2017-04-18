@@ -1,7 +1,12 @@
 <% provide(:page_title, 'All posts') %>
 
-<div class="row">
-  <% @posts.each do |post| %>
-    <%= render post %>
-  <% end %>
+<%= render 'shared/navbar' %>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </div>
 </div>
+
+<%= render 'shared/footer' %>
