@@ -137,4 +137,11 @@ Post.all.ids.count
 List all Post id numbers
 ```ruby
 Post.all.ids
+
+```
+To fix missing gem pg (0.18.4):
+```
+sudo apt-get install libpq-dev   
+gem instal pg 
+bundle install
 ```
