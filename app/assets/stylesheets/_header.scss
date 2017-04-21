@@ -3,21 +3,44 @@
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     border-color: #fff;
     border-radius: none;
-    margin-bottom: 24px;
 }
 
 header {
     text-align: center;
     color: #fff;
-    background: #18bc9c;
-    background-image: url(http://zeforge.org/wp-content/uploads/2017/02/Untitled-2.jpg);
-    position: fixed;
+    background: url(http://zeforge.org/wp-content/uploads/2017/02/Untitled-2.jpg) no-repeat center top;
+    /* background-image: url(http://zeforge.org/wp-content/uploads/2017/02/Untitled-2.jpg); */
+    margin-top: 0px;
+    padding-top: 0px;
+    background-position: center center;
+    min-height: 250px;
     width:100%;
     z-index: 1;
     height: 88%;
     overflow: hidden;
     top: 0;
     left: 0;
+}
+
+#page-top h1 {
+	color:#ffffff;
+	margin-top: -90px;
+	/* padding-bottom: 30px; */
+	/* letter-spacing: 8px; */
+	font-size: 100px;
+	font-weight: bold;
+	text-shadow: 2px 2px 2px #000;
+}
+
+#page-top p {
+	/* color:#ffffff; */
+	/* font-size: 40px; */
+	/* font-weight: 400; */
+	text-align: center;
+	/* line-height: 40px; */
+	/* letter-spacing: 3px; */
+	margin-left: 15px;
+	text-shadow: 1px 1px 1px #000;
 }
 
 .content-wrapper{
