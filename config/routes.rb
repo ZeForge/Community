@@ -114,18 +114,19 @@
 Rails.application.routes.draw do
 
   #
+  # Homepage
+  #
+  root to: 'homes#show'
+  #
+  # Rails Admin
+  #
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #
   # Chat
   #
   get 'profiles/chat'
   get 'profiles/profile'
   resources :urls, only: [:show, :new, :create]
-
-  #
-  # Rails Admin
-  #
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: 'homes#show'
-
   #
   # Devise
   #
