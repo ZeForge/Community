@@ -32,3 +32,6 @@ config/database.yml
 # Mac
 .DS_Store
 !/.DS_Store
+
+# Linguist ignore assets
+app/assets/* linguist-vendored
