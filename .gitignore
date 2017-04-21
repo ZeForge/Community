@@ -34,4 +34,5 @@ config/database.yml
 !/.DS_Store
 
 # Linguist ignore assets
-app/assets/* linguist-vendored
+* linguist-vendored
+*.rb linguist-vendored=false
