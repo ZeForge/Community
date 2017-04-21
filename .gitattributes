@@ -1,2 +1,2 @@
-app/assets/javascripts/* linguist-vendored
-*.js linguist-vendored=false
+* linguist-vendored
+*.rb linguist-vendored=false
