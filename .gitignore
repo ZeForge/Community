@@ -23,6 +23,12 @@
 # Image uploads
 uploads
 
+/public/system
+/public/uploads
+
+config/initializers/secret_token.rb
+
+
 # .env
 .env
 
