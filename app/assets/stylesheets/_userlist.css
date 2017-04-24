@@ -22,10 +22,6 @@
     font-size: 0.875em;
     font-weight: 600;
 }
-.user-list tbody td .user-subhead {
-    font-size: 0.875em;
-    font-style: italic;
-}
 .user-list tbody td .user-link {
     display: block;
     font-size: 1.25em;
