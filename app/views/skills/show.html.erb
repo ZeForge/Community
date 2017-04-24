@@ -9,8 +9,8 @@
       </div>
       <div class="col-md-8">
         <h3>Users having this skill</h3>
+        <% @skill.users.in_groups_of(2, false) do |user| %>
         <ul class="row">
-          <% @skill.users.in_groups_of(2, false) do |user| %>
           <% user.each do |u| %>
           <% if u.avatar_url %>
           <li class="col-md-6">
@@ -19,8 +19,8 @@
           </li>
           <% end %>
           <% end %>
-          <% end %>
         </ul>
+        <% end %>
       </div>
     </div>
     <br>
