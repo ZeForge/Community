@@ -7,23 +7,23 @@
         <hr class="star-primary">
       </div>
     </div>
-    <div class="row">
-      <% @users.in_groups_of(3, false) do |user| %>
-        <% user.each do |u| %>
-          <div class="col-md-4 col-sm-6 col-xs-12 profile-item">
-            <div class="profile-image">
-              <img class="img-responsive" src="<%=u.avatar_url%>" alt="Avatar" style="width: 50 %;">
-            </div>
-            <br>
-            <a href="" class="profile-link">
-              <div class="caption">
-                <%= link_to 'Profile', profile_path(u.id), class: 'btn btn-primary' %>
-                <small class="author">Joined <%= time_ago_in_words(u.created_at) %> ago.</small>
+    <% @users.in_groups_of(3, false) do |user| %>
+        <div class="row">
+            <% user.each do |u| %>
+              <div class="col-md-4 col-sm-6 col-xs-12 profile-item">
+                <div class="profile-image">
+                  <img class="img-responsive" src="<%=u.avatar_url%>" alt="Avatar" style="width: 50 %;">
+                </div>
+                <br>
+                <a href="" class="profile-link">
+                  <div class="caption">
+                    <%= link_to 'Profile', profile_path(u.id), class: 'btn btn-primary' %>
+                    <small class="author">Joined <%= time_ago_in_words(u.created_at) %> ago.</small>
+                  </div>
+                </a>
               </div>
-            </a>
-          </div>
-        <% end %>
-    <% end %>
-    </div>
+            <% end %>
+        </div>
+  <% end %>
   </div>
 </section>
