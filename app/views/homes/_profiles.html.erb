@@ -18,7 +18,7 @@
                 <a href="" class="profile-link">
                   <div class="caption">
                     <%= link_to (image_tag("#{u.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50 %;")), profile_path(u.id) %>
-                    <small class="author">Joined <%= time_ago_in_words(u.created_at) %> ago.</small>
+                    <!-- <small class="author">Joined <%# time_ago_in_words(u.created_at) %> ago.</small> -->
                   </div>
                 </a>
               </div>
