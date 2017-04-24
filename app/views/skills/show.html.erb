@@ -2,37 +2,38 @@
 <div class="main-content">
   <div class="container">
     <div class="row">
-      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
+      <div class="col-md-4">
         <h1><%= @skill.name %></h1>
         <p>Category: <%= @skill.category.name   %></p>
         <%= link_to 'Add as my skill', myskills_path(myskill: {skill_id: @skill.id, score: 0}), method: :post, class: 'btn btn-primary btn-sm' %>
       </div>
-      <div class="col-lg-2">
-      </div>
-    </div>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <tr>
-              <th>Users having this skill</th>
-              <th></th>
-            </tr>
-            <% @skill.users.each do |user| %>
-            <tr>
-              <% if user.avatar_url %>
-              <td>
-                <%= link_to (image_tag("#{user.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(user.id) %>
-              </td>
-              <% end %>
-              <td><%= link_to user.name, profile_path(user.id) %></td>
-            </tr>
-            <% end %>
-          </table>
+      <div class="col-md-8">
+        <div class="container">
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table table-hover user-list">
+                <tr>
+                  <th>Users having this skill</th>
+                  <th></th>
+                </tr>
+                <% @skill.users.each do |user| %>
+                <tr>
+                  <% if user.avatar_url %>
+                  <td>
+                    <%= link_to (image_tag("#{user.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(user.id) %>
+                    <%= link_to user.name, profile_path(user.id) %>
+                  </td>
+                  <% end %>
+                  <td></td>
+                </tr>
+                <% end %>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <br>
   </div>
 </div>
 <%= render 'shared/footer' %>
