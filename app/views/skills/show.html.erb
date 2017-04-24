@@ -21,7 +21,7 @@
                   <% if user.avatar_url %>
                   <td>
                     <%= link_to (image_tag("#{user.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(user.id) %>
-                    <%= link_to user.name, profile_path(user.id) %>
+                    <%= link_to user.name, profile_path(user.id), class: "user-link" %>
                   </td>
                   <% end %>
                   <td></td>

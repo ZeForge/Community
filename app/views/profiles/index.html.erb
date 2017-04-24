@@ -17,7 +17,9 @@
           <% @profiles.each do |profile| %>
           <tr>
             <% if profile.avatar_url %>
-            <td><img class="img-circle" src="<%= profile.avatar_url %>" alt="Avatar" style="width: 50px; height: 50px; max-width: 50px;"></td>
+            <td>
+              <%= link_to (image_tag("#{profile.avatar_url}", class: "img-circle", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(profile.id) %>
+            </td>
             <% end %>
             <td><%= link_to profile.name, profile_path(profile.id) %></td>
             <td><%= time_ago_in_words(profile.created_at) %> ago.</td>
