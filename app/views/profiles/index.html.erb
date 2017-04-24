@@ -10,6 +10,8 @@
       <table class="table table-striped">
         <tr>
           <th>Member</th>
+          <th></th>
+          <th>Joined</th>
         </tr>
         <% @profiles.each do |profile| %>
         <tr>
@@ -17,7 +19,7 @@
             <td><img class="img-circle" src="<%= profile.avatar_url %>" alt="Avatar" style="width: 50px; height: 50px; max-width: 50px;"></td>
           <% end %>
           <td><%= link_to profile.name, profile_path(profile.id) %></td>
-          <td></td>
+          <td><%= time_ago_in_words(profile.created_at) %> ago.</td>
         </tr>
         <% end %>
       </table>
