@@ -41,3 +41,11 @@
 #profile * {
   z-index: 2;
 }
+
+.profile-image{
+}
+
+img.img-responsive {
+    border-radius: 50%;
+    border: 1px solid #e7e7e2;
+}
