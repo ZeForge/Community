@@ -11,9 +11,12 @@
 </head>
 
 <body>
-      <%= render 'layouts/flash_messages' %>
-      <div class="container-fluid main-container"></div>
+  <%= render 'layouts/flash_messages' %>
+  <div class="wrap">
+    <div id="main" class="clear-top">
       <%= yield %>
     </div>
+  </div>
+</div>
 </body>
 </html>
