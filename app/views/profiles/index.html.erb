@@ -9,10 +9,13 @@
     <div class="col-md-5 col-md-offset-1">
       <table class="table table-striped">
         <tr>
-          <th colspan="">Name</th>
+          <th>Member</th>
         </tr>
         <% @profiles.each do |profile| %>
         <tr>
+          <% if profile.avatar_url %>
+            <td><img class="img-circle" src="<%= @profile.avatar_url %>" alt="Avatar" style="width: 50px; height: 50px; max-width: 50px;"></td>
+          <% end %>
           <td><%= link_to profile.name, profile_path(profile.id) %></td>
           <td></td>
         </tr>
