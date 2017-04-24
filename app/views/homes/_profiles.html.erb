@@ -12,8 +12,7 @@
             <% user.each do |u| %>
               <div class="col-md-4 col-sm-4 col-xs-12 profile-item">
                 <div class="profile-image">
-                  <%= image_tag("#{u.avatar_url}", class: "img-responsive", alt: "Profile", style: "width: 50 %;") %>
-                  <img class="img-responsive" src="<%=u.avatar_url%>" alt="Avatar" style="width: 50 %;">
+                  <%= image_tag("#{u.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50 %;") %>
                 </div>
                 <br>
                 <a href="" class="profile-link">
