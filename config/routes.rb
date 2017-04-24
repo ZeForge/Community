@@ -131,26 +131,19 @@ Rails.application.routes.draw do
   # Devise
   #
   devise_for :admins, controllers: { sessions: 'admin/sessions' }
-  devise_for :users, controllers: { sessions: 'users/sessions', :omniauth_callbacks => "users/omniauth_callbacks" }
-
-  devise_scope :user do
-    resource :registration,
-      only: [:new, :create, :edit, :update],
-      path: 'users',
-      path_names: { new: 'sign_up' },
-      controller: 'devise/registrations',
-      as: :user_registration do
-         get :cancel
-      end
-  end
-
+  devise_for :users, controllers: { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #
+  #
+  # devise_scope :user do
+  #   get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
+  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
+  #
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
   #
   # Users
   #
   resources :users
-
   #
   # Courses, Lessons, Instructors
   #
@@ -199,20 +192,15 @@ end
   #
   get 'my_skills', to: 'myskills#index', as: :my_skills
   #get 'new_skills', to: 'skills#new', as: :new_skills
-
-
   #
   # Categories
   #
   get 'category/:id', to: 'categories#show', as: :category
-
-  #  resources :profiles
-
   #
   # Posts
   #
   resources :posts
-    get 'users/json' => 'users#json'
-    put 'publish' => 'posts#publish'
-    put 'unpublish' => 'posts#unpublish'
+  get 'users/json' => 'users#json'
+  put 'publish' => 'posts#publish'
+  put 'unpublish' => 'posts#unpublish'
 end
