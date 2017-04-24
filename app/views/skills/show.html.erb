@@ -8,41 +8,19 @@
         <%= link_to 'Add as my skill', myskills_path(myskill: {skill_id: @skill.id, score: 0}), method: :post, class: 'btn btn-primary btn-sm' %>
       </div>
       <div class="col-md-8">
+        <h3>Users having this skill</h3>
         <ul class="row">
           <% @skill.users.in_groups_of(2, false) do |user| %>
-            <% user.each do |u| %>
-            <% if u.avatar_url %>
-                <li class="col-md-6">
-                  <%= link_to (image_tag("#{u.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(u.id) %>
-                  <%= link_to u.name, profile_path(u.id), class: "user-link" %>
-                </li>
-                <% end %>
-              <% end %>
+          <% user.each do |u| %>
+          <% if u.avatar_url %>
+          <li class="col-md-6">
+            <%= link_to (image_tag("#{u.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(u.id) %>
+            <%= link_to u.name, profile_path(u.id), class: "user-link" %>
+          </li>
+          <% end %>
+          <% end %>
           <% end %>
         </ul>
-        <div class="container">
-          <div class="row">
-            <div class="table-responsive">
-              <table class="table table-hover user-list">
-                <tr>
-                  <th>Users having this skill</th>
-                  <th></th>
-                </tr>
-                <% @skill.users.each do |user| %>
-                <tr>
-                  <% if user.avatar_url %>
-                  <td>
-                    <%= link_to (image_tag("#{user.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(user.id) %>
-                    <%= link_to user.name, profile_path(user.id), class: "user-link" %>
-                  </td>
-                  <% end %>
-                  <td></td>
-                </tr>
-                <% end %>
-              </table>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <br>
