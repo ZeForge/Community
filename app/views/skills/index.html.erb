@@ -10,6 +10,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Logo</th>
             <th>Name</th>
             <th>Category</th>
             <th>Users</th>
@@ -18,6 +19,11 @@
         <tbody>
           <% @skills.each do |skill| %>
           <tr>
+            <% unless skill.logo_url.nil? %>
+            <td>
+              <%= link_to (image_tag("#{skill.logo_url}", alt: "Skill logo", style: "width: 50px; height: 50px; max-width: 50px;")), skill_path(skill) %>
+            </td>
+            <% end %>
             <td><%= link_to skill.name, skill_path(skill) %></td>
             <td><%= link_to skill.category.name , category_path(skill.category.id)%></td>
             <% skill.users.each do |user| %>
