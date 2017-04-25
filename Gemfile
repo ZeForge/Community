@@ -12,7 +12,11 @@ end
 gem 'rails', '~> 5.0.2'
 
 gem 'sqlite3'
+
+# Administration panel
 gem 'rails_admin', '~> 1.1.1'
+
+# Gem for authorization
 gem 'cancancan'
 
 # Make lessons and sections sortable
