@@ -28,15 +28,15 @@
             <td><%= link_to skill.category.name , category_path(skill.category.id)%></td>
             <% skill.users.in_groups_of(3, false) do |user| %>
             <td>
-              <% user.each do |u| %>
               <ul class="row">
+                <% user.each do |u| %>
                 <li class="col-md-4">
                   <% if u.avatar_url %>
                   <%= link_to (image_tag("#{u.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(u.id) %>
                   <% end %>
                 </li>
+                <% end %>
               </ul>
-              <% end %>
             </td>
             <% end %>
           </tr>
