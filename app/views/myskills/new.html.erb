@@ -1,5 +1,11 @@
 <%= render 'shared/navbar' %>
 
-<%= render 'form', myskill: @myskill %>
+<div class="main-container">
+  <div class="container">
+    <%= render 'form', myskill: @myskill %>
 
-<%= link_to 'Back', myskills_path %>
+    <%= link_to 'Back', myskills_path %>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>

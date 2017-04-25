@@ -26,8 +26,19 @@
             <% end %>
             <td><%= link_to skill.name, skill_path(skill) %></td>
             <td><%= link_to skill.category.name , category_path(skill.category.id)%></td>
-            <% skill.users.each do |user| %>
-            <td><%= link_to user.name, profile_path(user), method: :get %></td>
+            <% skill.users.in_groups_of(2, false) do |user| %>
+            <td>
+              <% user.each do |u| %>
+              <ul class="row">
+                <li class="col-md-6">
+                  <% if u.avatar_url %>
+                  <%= link_to (image_tag("#{u.avatar_url}", class: "img-responsive", alt: "Profile Avatar", style: "width: 50px; height: 50px; max-width: 50px;")), profile_path(u.id) %>
+                  <% end %>
+                  <%= link_to u.name, profile_path(u), class: "user-link", method: :get %>
+                </li>
+              </ul>
+              <% end %>
+            </td>
             <% end %>
           </tr>
           <% end%>
