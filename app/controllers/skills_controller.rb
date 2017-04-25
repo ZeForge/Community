@@ -3,7 +3,7 @@ class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   def index
-    @skills = Skill.order('created_at DESC').includes(:category, :users).all
+    @skills = Skill.order('updated_at DESC').includes(:category, :users).all
   end
 
   def new
