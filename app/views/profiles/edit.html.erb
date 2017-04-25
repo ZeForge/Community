@@ -1,7 +1,12 @@
-<h1>Editing Profile</h1>
-
 <%= render 'shared/navbar' %>
-
-<%= render 'form', profile: @profile %>
-
-<%= link_to 'Show', profile_path %> |
+<div class="main-content">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h1>Editing Profile</h1></div>
+      <div class="panel-body">
+        <%= render 'form', profile: @profile %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer' %>
