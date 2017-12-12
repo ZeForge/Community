@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
 
 # Tells RVM to load ruby version 2.4.0
-ruby '2.4.0'
+ruby '2.4.2'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-# Ruby on Rails version 5.0.2
-gem 'rails', '~> 5.0.2'
+# Ruby on Rails version 5.1.4
+gem 'rails', '~> 5.1.4'
+gem 'erubis'
+gem 'sqlite3'
 
 gem 'sqlite3'
 
