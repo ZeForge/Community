@@ -11,7 +11,6 @@ end
 # Ruby on Rails version 5.1.4
 gem 'rails', '~> 5.1.4'
 gem 'erubis'
-gem 'sqlite3'
 
 gem 'sqlite3'
 
